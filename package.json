@@ -1,0 +1,13 @@
+{
+  "name": "safa-foods-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k -n frontend,backend -c green,blue \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "dotnet run --project backend/src/SafaFoods.Api",
+    "build": "npm run build --prefix frontend && dotnet build SafaFoods.sln -m:1 -v minimal"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
