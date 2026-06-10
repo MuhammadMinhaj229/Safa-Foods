@@ -3,431 +3,295 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SAFA | Fresh Kitchen Goodness</title>
+    <title>SAFA | Fresh Essentials Delivery in Warangal</title>
+    <meta
+      name="description"
+      content="SAFA delivers fresh vegetables, fruits, eggs, and daily essentials to households in Warangal with trusted sourcing, clean packing, and simple WhatsApp ordering."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#123f2d" />
+    <link rel="canonical" href="https://safa-fresh.netlify.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SAFA" />
+    <meta property="og:title" content="SAFA | Fresh Essentials Delivered with Trust" />
+    <meta
+      property="og:description"
+      content="Fresh vegetables, fruits, eggs, and daily essentials delivered to your doorstep in Warangal."
+    />
+    <meta property="og:url" content="https://safa-fresh.netlify.app/" />
+    <meta property="og:image" content="https://safa-fresh.netlify.app/assets/logo.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SAFA Fresh Essentials" />
+    <meta
+      name="twitter:description"
+      content="Vegetables delivery Warangal, fresh fruits Warangal, eggs, and daily essentials via WhatsApp."
+    />
+    <meta name="twitter:image" content="https://safa-fresh.netlify.app/assets/logo.png" />
+
+    <link rel="icon" href="/assets/icons/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/assets/icons/favicon-48.png" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/style.css" />
-    <!-- Feather Icons for lightweight SVGs -->
-    <script src="https://unpkg.com/feather-icons"></script>
-    <style>
-      :root {
-        --font-montserrat: 'Montserrat', sans-serif;
-        --font-cormorant: 'Cormorant', serif;
-      }
-      .font-sans { font-family: var(--font-montserrat); }
-      .font-serif { font-family: var(--font-cormorant); }
-    </style>
-  </head>
-  <body class="bg-[#f6f1e7] text-[#1f3322] font-sans">
 
-    <header class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-[#e5dccf]/50">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-20 items-center justify-between">
-          <a href="/" class="flex items-center gap-3">
-            <span class="text-2xl font-black tracking-[0.4em] uppercase text-[#1E331B]">Safa</span>
-          </a>
-          <nav class="hidden md:flex gap-8">
-            <a href="#collections" class="text-[11px] font-bold uppercase tracking-[0.3em] text-[#6a7067] hover:text-[#A68A56] transition-colors">Collections</a>
-            <a href="#subscription" class="text-[11px] font-bold uppercase tracking-[0.3em] text-[#6a7067] hover:text-[#A68A56] transition-colors">Subscriptions</a>
-            <a href="#kitchen-wisdom" class="text-[11px] font-bold uppercase tracking-[0.3em] text-[#6a7067] hover:text-[#A68A56] transition-colors">Kitchen Wisdom</a>
-          </nav>
-          <a href="#shop" class="hidden md:inline-flex items-center justify-center border border-[#1b3821] px-6 py-3 text-[10px] font-bold uppercase tracking-[0.3em] text-[#1b3821] hover:bg-[#1b3821] hover:text-white transition-all">
-            Order Now
-          </a>
-        </div>
-      </div>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["Organization", "LocalBusiness", "Store"],
+            "@id": "https://safa-fresh.netlify.app/#organization",
+            "name": "SAFA",
+            "url": "https://safa-fresh.netlify.app/",
+            "logo": "https://safa-fresh.netlify.app/assets/logo.png",
+            "areaServed": ["Warangal", "Hanamkonda", "Kazipet"],
+            "description": "Fresh vegetables, fruits, eggs, and daily essentials delivery for local households.",
+            "sameAs": ["https://wa.me/919999999999"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://safa-fresh.netlify.app/#website",
+            "url": "https://safa-fresh.netlify.app/",
+            "name": "SAFA",
+            "publisher": { "@id": "https://safa-fresh.netlify.app/#organization" }
+          },
+          {
+            "@type": "Service",
+            "@id": "https://safa-fresh.netlify.app/#service",
+            "name": "Fresh essentials delivery in Warangal",
+            "provider": { "@id": "https://safa-fresh.netlify.app/#organization" },
+            "serviceType": "Vegetables, fruits, eggs, and daily essentials delivery",
+            "areaServed": ["Warangal", "Hanamkonda", "Kazipet"]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="SAFA home">
+        <img src="/assets/logo.png" alt="" width="44" height="44" />
+        <span>SAFA</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+        <span></span><span></span><span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav class="primary-nav" id="primary-nav" data-nav>
+        <a href="#how">How it works</a>
+        <a href="#categories">Categories</a>
+        <a href="#trust">Trust</a>
+        <a href="#order">Order</a>
+      </nav>
+      <a class="header-cta" href="#" data-whatsapp-link>Order on WhatsApp</a>
     </header>
 
     <main id="main">
-      <!-- HERO -->
-      <section class="relative overflow-hidden bg-[#f4efe5] px-4 pb-20 pt-36 sm:px-6 sm:pt-40 lg:px-8 lg:pt-44">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.82),transparent_35%),radial-gradient(circle_at_80%_18%,rgba(255,255,255,0.65),transparent_28%),radial-gradient(circle_at_68%_68%,rgba(255,255,255,0.45),transparent_30%)]"></div>
-        <div class="absolute inset-y-0 right-[14%] hidden w-[16%] skew-x-[-10deg] bg-white/25 lg:block"></div>
-
-        <div class="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center xl:gap-16">
-          <div class="relative max-w-xl py-6 sm:py-10">
-            <div class="inline-flex items-center gap-2 border border-[#bf9e64] px-4 py-2 text-[9px] font-bold uppercase tracking-[0.34em] text-[#ae8f59] sm:text-[10px]">
-              <i data-feather="star" style="width:12px; height:12px; fill:currentColor;"></i>
-              Delivered in 45 mins | Warangal
-            </div>
-
-            <h1 class="mt-10 font-serif text-[3.5rem] italic leading-[0.9] tracking-[-0.045em] text-[#1b3821] min-[380px]:text-[4rem] sm:text-[5.6rem] lg:text-[6.5rem]">
-              Experience the
-              <span class="block text-[#c2a267]">Fresh Kitchen</span>
-              <span class="block">Goodness</span>
-            </h1>
-
-            <p class="mt-8 max-w-lg text-[1.05rem] leading-8 text-[#6a7067] sm:text-[1.15rem]">
-              100% Fresh. No Preservatives. Made Daily. Hand-ground condiments from our
-              Warangal kitchen, delivered to your door.
-            </p>
-
-            <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a href="#shop" class="inline-flex min-w-[12rem] items-center justify-center bg-[#173d1d] px-8 py-4 text-[11px] font-bold uppercase tracking-[0.3em] text-white shadow-[0_16px_30px_rgba(23,61,29,0.16)] transition hover:bg-[#204926]">
-                Shop Authentic Flavors
-              </a>
-              <a href="#mission" class="inline-flex min-w-[11rem] items-center justify-center border border-[#1b3821]/45 bg-transparent px-8 py-4 text-[11px] font-bold uppercase tracking-[0.3em] text-[#1b3821] transition hover:bg-white/45">
-                Our Mission
-              </a>
-            </div>
+      <section class="hero section" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">Warangal fresh essentials</p>
+          <h1>Fresh Essentials. Delivered with Trust.</h1>
+          <p class="hero-lede">
+            Fresh vegetables, fruits, eggs, and daily essentials delivered to your doorstep.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#" data-whatsapp-link>Order on WhatsApp</a>
+            <a class="btn btn-secondary" href="#order">Quick Order</a>
           </div>
-
-          <div class="relative flex items-center justify-center pt-4 lg:justify-end">
-            <div class="absolute left-0 top-4 z-20 sm:left-6 lg:left-auto lg:right-[58%] lg:top-2">
-              <div class="flex h-24 w-24 items-center justify-center rounded-full border-[6px] border-white bg-[#b49761] shadow-[0_18px_30px_rgba(44,32,16,0.16)] sm:h-28 sm:w-28 sm:border-[8px] animate-spin-slow">
-                <div class="flex h-full w-full flex-col items-center justify-center text-center text-[#18311d]" style="animation: spin-slow 20s linear infinite reverse;">
-                  <i data-feather="shield" class="mb-1 sm:h-5 sm:w-5"></i>
-                  <span class="text-[8px] font-black uppercase tracking-[0.18em] sm:text-[9px]">
-                    100%<br />Natural
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div class="relative w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-[27rem]">
-              <div class="overflow-hidden rounded-t-[8rem] rounded-b-[0.5rem] border-[8px] border-white bg-white p-3 shadow-[0_28px_70px_rgba(53,39,18,0.14)] sm:rounded-t-[10rem] sm:border-[10px] sm:p-4">
-                <div class="overflow-hidden rounded-t-[7rem] sm:rounded-t-[9rem]">
-                  <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&q=80&w=1400" alt="Safa Foods ingredients" class="h-[23rem] w-full object-cover sm:h-[29rem] lg:h-[32rem]" />
-                </div>
-              </div>
-            </div>
+          <div class="trust-strip" aria-label="SAFA trust indicators">
+            <span>Fresh sourcing</span>
+            <span>Clean packing</span>
+            <span>Reliable local delivery</span>
           </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Fresh produce basket">
+          <div class="basket-scene">
+            <div class="produce tomato"></div>
+            <div class="produce greens"></div>
+            <div class="produce lemon"></div>
+            <div class="produce egg"></div>
+            <div class="basket">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="basket-shadow"></div>
+          </div>
+          <div class="quality-note top">Selected fresh daily</div>
+          <div class="quality-note bottom">Packed with care</div>
         </div>
       </section>
 
-      <!-- PROMISE BAND -->
-      <section class="bg-[#173d1d] px-4 py-12 text-[#efe5cf] sm:px-6 lg:px-8">
-        <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 xl:grid-cols-4">
-          <div class="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
-            <div class="flex h-16 w-16 items-center justify-center rounded-full border border-[#7d8c5f]/35 text-[#c1a566]">
-              <i data-feather="target" style="width:24px; height:24px; stroke-width:1.5;"></i>
-            </div>
-            <div>
-              <p class="text-[12px] font-bold uppercase tracking-[0.38em]">All Natural</p>
-              <p class="mt-3 max-w-xs text-sm leading-7 text-[#d7d1c1]">Fresh ingredients. No hidden preservatives. No shortcuts.</p>
-            </div>
-          </div>
-          <div class="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
-            <div class="flex h-16 w-16 items-center justify-center rounded-full border border-[#7d8c5f]/35 text-[#c1a566]">
-              <i data-feather="shield" style="width:24px; height:24px; stroke-width:1.5;"></i>
-            </div>
-            <div>
-              <p class="text-[12px] font-bold uppercase tracking-[0.38em]">Hygienic</p>
-              <p class="mt-3 max-w-xs text-sm leading-7 text-[#d7d1c1]">Prepared in clean controlled batches for daily household use.</p>
-            </div>
-          </div>
-          <div class="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
-            <div class="flex h-16 w-16 items-center justify-center rounded-full border border-[#7d8c5f]/35 text-[#c1a566]">
-              <i data-feather="heart" style="width:24px; height:24px; stroke-width:1.5;"></i>
-            </div>
-            <div>
-              <p class="text-[12px] font-bold uppercase tracking-[0.38em]">Social Impact</p>
-              <p class="mt-3 max-w-xs text-sm leading-7 text-[#d7d1c1]">A local Warangal brand designed to support community-led growth.</p>
-            </div>
-          </div>
-          <div class="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
-            <div class="flex h-16 w-16 items-center justify-center rounded-full border border-[#7d8c5f]/35 text-[#c1a566]">
-              <i data-feather="truck" style="width:24px; height:24px; stroke-width:1.5;"></i>
-            </div>
-            <div>
-              <p class="text-[12px] font-bold uppercase tracking-[0.38em]">Daily Fresh</p>
-              <p class="mt-3 max-w-xs text-sm leading-7 text-[#d7d1c1]">Made in small runs and delivered fast across serviceable areas.</p>
-            </div>
-          </div>
+      <section class="section split-section" id="solution">
+        <div class="section-heading">
+          <p class="eyebrow">Problem to solution</p>
+          <h2>Daily market runs should not control your routine.</h2>
+        </div>
+        <div class="problem-grid">
+          <article>
+            <h3>Market visits take time</h3>
+            <p>Busy families and working professionals lose time repeating the same daily errands.</p>
+          </article>
+          <article>
+            <h3>Quality can feel inconsistent</h3>
+            <p>Freshness, packing, and pricing should feel clear every time you order.</p>
+          </article>
+          <article>
+            <h3>SAFA makes ordering simple</h3>
+            <p>Share your list on WhatsApp, confirm the items, and receive essentials at home.</p>
+          </article>
         </div>
       </section>
 
-      <!-- COLLECTIONS & PRODUCTS SECTION -->
-      <section id="collections" class="px-4 py-20 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-7xl">
-          <div class="grid gap-12 lg:grid-cols-[0.34fr_1fr] xl:gap-16">
-            <div class="space-y-8">
-              <div>
-                <h2 class="font-serif text-5xl italic text-[#1f3322] sm:text-6xl">Collections</h2>
-                <div class="mt-4 h-px bg-[#e2d8c7]"></div>
-              </div>
-
-              <nav class="space-y-6">
-                <article class="border-b border-[#ece2d2] pb-6">
-                  <a href="#shop" class="block text-[15px] font-bold uppercase tracking-[0.28em] text-[#1f3322] transition hover:text-[#b49761]">
-                    <span class="border-l border-[#b49761] pl-4">All Pastes</span>
-                  </a>
-                  <p class="mt-3 max-w-xs text-base leading-7 text-[#6d7266]">
-                    Fresh ginger garlic, garlic-only, chilli and future combos.
-                  </p>
-                </article>
-                <article class="border-b border-[#ece2d2] pb-6">
-                  <a href="#subscription" class="block text-[15px] font-bold uppercase tracking-[0.28em] text-[#1f3322] transition hover:text-[#b49761]">
-                    <span>Subscriptions</span>
-                  </a>
-                  <p class="mt-3 max-w-xs text-base leading-7 text-[#6d7266]">
-                    Weekly fresh delivery plans for homes that cook every day.
-                  </p>
-                </article>
-                <article class="border-b border-[#ece2d2] pb-6">
-                  <a href="#kitchen-wisdom" class="block text-[15px] font-bold uppercase tracking-[0.28em] text-[#1f3322] transition hover:text-[#b49761]">
-                    <span>Kitchen Wisdom</span>
-                  </a>
-                  <p class="mt-3 max-w-xs text-base leading-7 text-[#6d7266]">
-                    Recipes, storage tips, and local cooking inspiration.
-                  </p>
-                </article>
-              </nav>
-
-              <div class="overflow-hidden rounded-[1.75rem] bg-[#173d1d] px-8 py-10 text-white shadow-[0_24px_60px_rgba(24,46,28,0.18)]">
-                <h3 class="font-serif text-5xl italic leading-tight">Fresh Subscriptions</h3>
-                <p class="mt-5 max-w-sm text-base leading-8 text-[#dde4d7]">
-                  Get weekly paste deliveries at a discount. Clear Monday scheduling, simple
-                  renewal, and local support.
-                </p>
-                <a href="#subscription" class="mt-8 inline-flex w-full items-center justify-center border border-[#5b6d4f] px-8 py-4 text-[11px] font-bold uppercase tracking-[0.34em] text-[#e9d59b] transition hover:bg-white/5">
-                  View Plans
-                </a>
-              </div>
-            </div>
-
-            <div class="space-y-10">
-              <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] xl:items-stretch">
-                <div class="overflow-hidden rounded-[2rem] border border-[#e8decc] bg-white shadow-[0_18px_55px_rgba(38,29,16,0.06)]">
-                  <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&q=80&w=1400" alt="Safa collection feature" class="h-72 w-full object-cover" />
-                  <div class="px-8 py-8">
-                    <p class="text-[11px] font-bold uppercase tracking-[0.38em] text-[#b49761]">
-                      This Week's Kitchen Base
-                    </p>
-                    <h3 class="mt-4 font-serif text-4xl italic leading-tight text-[#1f3322] sm:text-5xl">
-                      Fresh paste, built for real home cooking
-                    </h3>
-                    <p class="mt-5 max-w-2xl text-lg leading-8 text-[#6d7266]">
-                      Start with our hero ginger garlic paste, then build your kitchen with
-                      garlic-only, green chilli, and future combo packs.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="rounded-[2rem] border border-[#e8decc] bg-[#faf6ee] px-8 py-9 shadow-[0_18px_55px_rgba(38,29,16,0.05)]">
-                  <p class="text-[11px] font-bold uppercase tracking-[0.38em] text-[#b49761]">
-                    Why Homes Repeat Order
-                  </p>
-                  <div class="mt-8 space-y-8">
-                    <div class="border-b border-[#e4dccb] pb-6">
-                      <p class="text-lg leading-8 text-[#4f5a50]">Balanced kitchen-ready flavour for curry, biryani, and marinades.</p>
-                    </div>
-                    <div class="border-b border-[#e4dccb] pb-6">
-                      <p class="text-lg leading-8 text-[#4f5a50]">Clear weekly delivery rhythm for subscription customers.</p>
-                    </div>
-                    <div class="pb-6">
-                      <p class="text-lg leading-8 text-[#4f5a50]">Small-batch freshness instead of warehouse-style stock aging.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="grid gap-8 md:grid-cols-2">
-                <!-- Product 1 -->
-                <article class="group relative flex flex-col overflow-hidden rounded-[2rem] border border-[#e5dccf] bg-white shadow-[0_18px_55px_rgba(38,29,16,0.06)]">
-                  <div class="relative aspect-[4/3] overflow-hidden bg-[#f4efe5]">
-                    <div class="absolute left-6 top-6 z-10 rounded-full bg-[#173d1d] px-4 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-white shadow-sm">
-                      Fresh daily
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&q=80&w=1200" alt="Premium Ginger Garlic Paste" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  </div>
-                  <div class="flex flex-1 flex-col p-6 sm:p-8">
-                    <p class="text-[11px] font-bold uppercase tracking-[0.34em] text-[#b49761]">Hero product for daily cooking</p>
-                    <h3 class="mt-4 font-serif text-3xl italic text-[#1f3322]">Premium Ginger Garlic Paste</h3>
-                    <div class="mt-6 flex flex-wrap gap-2">
-                      <span class="rounded-full border border-[#e5dccf] bg-[#fbf9f4] px-4 py-1.5 text-xs font-semibold text-[#6d7266]">200 g</span>
-                      <span class="rounded-full border border-[#e5dccf] bg-[#fbf9f4] px-4 py-1.5 text-xs font-semibold text-[#6d7266]">500 g</span>
-                    </div>
-                    <div class="mt-8 flex items-center justify-between border-t border-[#e5dccf] pt-6">
-                      <p class="text-2xl font-bold tracking-tight text-[#1f3322]">Rs. 99</p>
-                      <a href="#" class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#173d1d] text-white transition-transform hover:scale-110">
-                        <i data-feather="plus" style="width:20px; height:20px;"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-
-                <!-- Product 2 -->
-                <article class="group relative flex flex-col overflow-hidden rounded-[2rem] border border-[#e5dccf] bg-white shadow-[0_18px_55px_rgba(38,29,16,0.06)]">
-                  <div class="relative aspect-[4/3] overflow-hidden bg-[#f4efe5]">
-                    <div class="absolute left-6 top-6 z-10 rounded-full bg-[#173d1d] px-4 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-white shadow-sm">
-                      Fresh batch prep
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1509358273864-bdbaa9bf939f?auto=format&fit=crop&q=80&w=1200" alt="Fresh Garlic Paste" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  </div>
-                  <div class="flex flex-1 flex-col p-6 sm:p-8">
-                    <p class="text-[11px] font-bold uppercase tracking-[0.34em] text-[#b49761]">Convenience without compromise</p>
-                    <h3 class="mt-4 font-serif text-3xl italic text-[#1f3322]">Fresh Garlic Paste</h3>
-                    <div class="mt-6 flex flex-wrap gap-2">
-                      <span class="rounded-full border border-[#e5dccf] bg-[#fbf9f4] px-4 py-1.5 text-xs font-semibold text-[#6d7266]">200 g</span>
-                      <span class="rounded-full border border-[#e5dccf] bg-[#fbf9f4] px-4 py-1.5 text-xs font-semibold text-[#6d7266]">500 g</span>
-                    </div>
-                    <div class="mt-8 flex items-center justify-between border-t border-[#e5dccf] pt-6">
-                      <p class="text-2xl font-bold tracking-tight text-[#1f3322]">Rs. 89</p>
-                      <a href="#" class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#173d1d] text-white transition-transform hover:scale-110">
-                        <i data-feather="plus" style="width:20px; height:20px;"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-              </div>
-
-              <!-- SUBSCRIPTION PLANS INSIDE COLLECTIONS -->
-              <div class="overflow-hidden rounded-[2rem] border border-[#e5dccf] bg-white px-6 py-10 shadow-[0_18px_55px_rgba(38,29,16,0.06)] sm:px-8">
-                <div class="flex flex-wrap items-center justify-between gap-6">
-                  <div>
-                    <p class="text-[11px] font-bold uppercase tracking-[0.38em] text-[#b49761]">
-                      Subscription Plans
-                    </p>
-                    <h3 class="mt-4 font-serif text-4xl italic text-[#1f3322] sm:text-5xl">
-                      Never Run Out
-                    </h3>
-                  </div>
-                  <a href="#subscription" class="inline-flex items-center justify-center border border-[#d1c3a8] px-8 py-4 text-[11px] font-bold uppercase tracking-[0.34em] text-[#1f3322] transition hover:bg-[#f7f2e9]">
-                    Compare Plans
-                  </a>
-                </div>
-
-                <div class="mt-10 grid gap-6 lg:grid-cols-3">
-                  <article class="border px-6 py-8 text-center border-[#ece3d2] bg-[#fbf9f4] text-[#1f3322]">
-                    <h4 class="font-serif text-4xl italic">Basic Plan</h4>
-                    <p class="mt-5 text-sm leading-7 text-[#717565]">Perfect for couples or light cooks.</p>
-                    <div class="mx-auto mt-8 max-w-[11rem] px-5 py-5 text-center text-[12px] font-bold uppercase tracking-[0.18em] bg-white">
-                      Includes
-                      <div class="mt-2 text-xl tracking-normal">250g x 4 jars / month</div>
-                    </div>
-                    <p class="mt-8 text-5xl font-bold tracking-[-0.04em]">
-                      Rs. 270
-                      <span class="text-xl font-medium opacity-70">/month</span>
-                    </p>
-                    <p class="mt-5 text-[11px] font-bold uppercase tracking-[0.34em] text-[#9c9b8e]">Free local delivery included</p>
-                  </article>
-
-                  <article class="border px-6 py-8 text-center border-[#173d1d] bg-[#173d1d] text-white">
-                    <h4 class="font-serif text-4xl italic">Family Plan</h4>
-                    <p class="mt-5 text-sm leading-7 text-[#dfddcf]">Our most popular fresh daily choice.</p>
-                    <div class="mx-auto mt-8 max-w-[11rem] px-5 py-5 text-center text-[12px] font-bold uppercase tracking-[0.18em] bg-[#b49761] text-[#17311d]">
-                      Includes
-                      <div class="mt-2 text-xl tracking-normal">500g x 4 jars / month</div>
-                    </div>
-                    <p class="mt-8 text-5xl font-bold tracking-[-0.04em]">
-                      Rs. 520
-                      <span class="text-xl font-medium opacity-70">/month</span>
-                    </p>
-                    <p class="mt-5 text-[11px] font-bold uppercase tracking-[0.34em] text-[#dfddcf]">Best value for regular homes</p>
-                  </article>
-
-                  <article class="border px-6 py-8 text-center border-[#ece3d2] bg-[#fbf9f4] text-[#1f3322]">
-                    <h4 class="font-serif text-4xl italic">Chef's Plan</h4>
-                    <p class="mt-5 text-sm leading-7 text-[#717565]">Bulk fresh supply for daily creators.</p>
-                    <div class="mx-auto mt-8 max-w-[11rem] px-5 py-5 text-center text-[12px] font-bold uppercase tracking-[0.18em] bg-white">
-                      Includes
-                      <div class="mt-2 text-xl tracking-normal">1kg x 4 buckets / month</div>
-                    </div>
-                    <p class="mt-8 text-5xl font-bold tracking-[-0.04em]">
-                      Rs. 900
-                      <span class="text-xl font-medium opacity-70">/month</span>
-                    </p>
-                    <p class="mt-5 text-[11px] font-bold uppercase tracking-[0.34em] text-[#9c9b8e]">Ideal for heavy household use</p>
-                  </article>
-                </div>
-              </div>
-
-            </div>
-          </div>
+      <section class="section how-section" id="how">
+        <div class="section-heading center">
+          <p class="eyebrow">How it works</p>
+          <h2>A simple three-step system.</h2>
+        </div>
+        <div class="steps">
+          <article>
+            <span>01</span>
+            <h3>Share your order</h3>
+            <p>Send your vegetables, fruits, eggs, or essentials list on WhatsApp.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>We prepare fresh</h3>
+            <p>Items are sourced, checked, and packed cleanly for your household.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Delivered to your home</h3>
+            <p>Your essentials reach your doorstep through reliable local delivery.</p>
+          </article>
         </div>
       </section>
 
-      <!-- SUBSCRIPTION SPOTLIGHT -->
-      <section id="subscription" class="px-4 py-10 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-7xl rounded-[2rem] border border-[#ece2d0] bg-white px-8 py-16 shadow-[0_16px_40px_rgba(43,30,16,0.05)]">
-          <div class="mx-auto max-w-4xl text-center">
-            <p class="text-[11px] font-bold uppercase tracking-[0.45em] text-[#b49761]">
-              100% preservative free | Made fresh daily in Warangal | Hyperlocal delivery support
-            </p>
-            <h2 class="mt-8 font-serif text-[2.9rem] italic leading-[1] text-[#1f3322] sm:text-[5rem]">
-              Subscribe &amp; Save
-            </h2>
-            <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#6d7266] sm:text-xl sm:leading-9">
-              Fresh paste delivered to your door on your schedule. Cancel anytime, no
-              contracts, just real flavour and dependable local service.
-            </p>
-          </div>
+      <section class="section categories-section" id="categories">
+        <div class="section-heading">
+          <p class="eyebrow">Product categories</p>
+          <h2>Everything your kitchen needs, starting with fresh essentials.</h2>
+        </div>
+        <div class="category-grid">
+          <article>
+            <img src="/assets/products/vegetables.png" alt="" />
+            <h3>Vegetables</h3>
+            <p>Daily staples, greens, and seasonal fresh picks.</p>
+          </article>
+          <article>
+            <img src="/assets/products/fruits.png" alt="" />
+            <h3>Fruits</h3>
+            <p>Fresh fruits for breakfast, snacks, and family routines.</p>
+          </article>
+          <article>
+            <img src="/assets/products/eggs.png" alt="" />
+            <h3>Eggs</h3>
+            <p>Simple, reliable protein for everyday cooking.</p>
+          </article>
+          <article>
+            <img src="/assets/products/essentials.png" alt="" />
+            <h3>Essentials</h3>
+            <p>Daily household and kitchen basics as the service expands.</p>
+          </article>
+          <article class="future">
+            <span>Coming soon</span>
+            <h3>Safa Foods</h3>
+            <p>Food products and pantry support for local households.</p>
+          </article>
+          <article class="future">
+            <span>Coming soon</span>
+            <h3>Safa Services</h3>
+            <p>Future home-service support under the same trusted brand.</p>
+          </article>
         </div>
       </section>
 
-      <!-- KITCHEN WISDOM -->
-      <section id="kitchen-wisdom" class="px-4 pb-24 pt-10 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-7xl rounded-[2rem] border border-[#ece2d0] bg-white px-6 py-16 shadow-[0_16px_50px_rgba(43,30,16,0.05)] sm:px-10">
-          <div class="mx-auto max-w-4xl text-center">
-            <h2 class="font-serif text-[3rem] italic leading-none text-[#1f3322] sm:text-[5rem]">
-              Kitchen Wisdom
-            </h2>
-            <p class="mt-6 text-lg leading-8 text-[#6d7266] sm:text-xl sm:leading-9">
-              Tips, recipes, and artisan techniques from our Warangal kitchen to yours.
-            </p>
-          </div>
-
-          <div class="mt-16 grid gap-12 md:grid-cols-2">
-            <article class="space-y-6">
-              <div class="overflow-hidden bg-[#f6f1e7] shadow-[0_18px_35px_rgba(47,35,18,0.08)]">
-                <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&q=80&w=1200" alt="5 Ways to Use Fresh Paste (Besides Curry)" class="h-64 w-full object-cover transition duration-700 hover:scale-[1.03]" />
-              </div>
-              <p class="text-[11px] font-bold uppercase tracking-[0.4em] text-[#b49761]">April 05, 2026</p>
-              <h3 class="max-w-lg font-serif text-4xl italic leading-tight text-[#1f3322] sm:text-5xl">
-                5 Ways to Use Fresh Paste (Besides Curry)
-              </h3>
-              <p class="max-w-xl text-lg leading-8 text-[#6d7266] sm:leading-9">From artisan marinades to flavored butter, discover how fresh ginger garlic paste transforms everyday cooking.</p>
-              <a href="#mission" class="inline-flex border-b border-[#1f3322] pb-2 text-[11px] font-bold uppercase tracking-[0.34em] text-[#1f3322]">Read Post</a>
-            </article>
-
-            <article class="space-y-6">
-              <div class="overflow-hidden bg-[#f6f1e7] shadow-[0_18px_35px_rgba(47,35,18,0.08)]">
-                <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=1200" alt="Why Preservative-Free Tastes Better" class="h-64 w-full object-cover transition duration-700 hover:scale-[1.03]" />
-              </div>
-              <p class="text-[11px] font-bold uppercase tracking-[0.4em] text-[#b49761]">March 28, 2026</p>
-              <h3 class="max-w-lg font-serif text-4xl italic leading-tight text-[#1f3322] sm:text-5xl">
-                Why Preservative-Free Tastes Better
-              </h3>
-              <p class="max-w-xl text-lg leading-8 text-[#6d7266] sm:leading-9">The science behind why real ingredients deliver deeper flavour and a cleaner aroma in home kitchens.</p>
-              <a href="#mission" class="inline-flex border-b border-[#1f3322] pb-2 text-[11px] font-bold uppercase tracking-[0.34em] text-[#1f3322]">Read Post</a>
-            </article>
-          </div>
+      <section class="section trust-section" id="trust">
+        <div>
+          <p class="eyebrow">Trust first</p>
+          <h2>Built for families who want reliability, not guesswork.</h2>
+          <p>
+            SAFA keeps the experience calm and clear: fresh sourcing, clean packing, reliable delivery, and local support.
+          </p>
         </div>
+        <div class="trust-list">
+          <div><strong>Fresh sourcing</strong><span>Selected with daily use in mind.</span></div>
+          <div><strong>Clean packing</strong><span>Handled carefully before dispatch.</span></div>
+          <div><strong>Reliable delivery</strong><span>Designed for repeat household support.</span></div>
+          <div><strong>Local support</strong><span>Built around Warangal and nearby areas.</span></div>
+        </div>
+      </section>
+
+      <section class="section value-section">
+        <div class="section-heading center">
+          <p class="eyebrow">Customer value</p>
+          <h2>Less stress around daily essentials.</h2>
+        </div>
+        <div class="value-grid">
+          <article><h3>Saves time</h3><p>Skip repeated market trips and order from home.</p></article>
+          <article><h3>Reduces stress</h3><p>Clear ordering helps families plan the day better.</p></article>
+          <article><h3>Consistent supply</h3><p>A dependable local rhythm for fresh essentials.</p></article>
+          <article><h3>Family convenience</h3><p>Designed for households, professionals, and busy routines.</p></article>
+        </div>
+      </section>
+
+      <section class="section order-section" id="order">
+        <div class="order-copy">
+          <p class="eyebrow">First order</p>
+          <h2>Start Your First Order Today</h2>
+          <p>Use WhatsApp for the fastest order, or fill the quick form to generate a clean message.</p>
+          <a class="btn btn-primary" href="#" data-whatsapp-link>WhatsApp</a>
+        </div>
+        <form class="quick-form" data-order-form>
+          <label>
+            <span>Name</span>
+            <input name="name" autocomplete="name" placeholder="Your name" />
+          </label>
+          <label>
+            <span>Phone</span>
+            <input name="phone" inputmode="tel" autocomplete="tel" placeholder="Your phone number" />
+          </label>
+          <label>
+            <span>Area</span>
+            <input name="area" autocomplete="address-level2" placeholder="Hanamkonda, Warangal..." />
+          </label>
+          <label>
+            <span>Items</span>
+            <textarea name="items" placeholder="Tomatoes, onions, eggs, fruits..."></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Quick Order</button>
+        </form>
       </section>
     </main>
 
-    <footer class="bg-[#173d1d] text-[#efe5cf] py-16">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid gap-12 md:grid-cols-3">
-          <div>
-            <a href="/" class="text-2xl font-black tracking-[0.4em] uppercase text-white">Safa</a>
-            <p class="mt-6 text-sm leading-7 text-[#d7d1c1] max-w-xs">
-              Premium fresh ginger-garlic paste and homemade essentials delivered across Warangal and Hanakonda with transparent local pricing.
-            </p>
-          </div>
-          <div>
-            <h2 class="text-[11px] font-bold uppercase tracking-[0.38em] text-[#c1a566]">Contact</h2>
-            <div class="mt-6 space-y-4 text-sm text-[#d7d1c1]">
-              <p>Warangal, Hanamkonda, Kazipet</p>
-              <a href="https://wa.me/919999999999" class="block hover:text-white transition">Order on WhatsApp</a>
-            </div>
-          </div>
-          <div>
-            <h2 class="text-[11px] font-bold uppercase tracking-[0.38em] text-[#c1a566]">Follow Us</h2>
-            <div class="mt-6 flex gap-4">
-              <a href="#" class="footer-social"><i data-feather="instagram"></i></a>
-              <a href="#" class="footer-social"><i data-feather="facebook"></i></a>
-            </div>
-          </div>
-        </div>
+    <footer class="site-footer">
+      <div>
+        <a class="footer-brand" href="/">SAFA</a>
+        <p>A local household essentials platform built on convenience, trust, quality, and reliable local support.</p>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <a href="#" data-whatsapp-link>Order on WhatsApp</a>
+        <span>Warangal, Hanamkonda, Kazipet</span>
+      </div>
+      <div>
+        <h2>Future vision</h2>
+        <span>Safa Fresh</span>
+        <span>Safa Foods</span>
+        <span>Safa Services</span>
       </div>
     </footer>
 
-    <script>
-      feather.replace();
-    </script>
+    <a class="floating-whatsapp" href="#" data-whatsapp-link aria-label="Order on WhatsApp">WhatsApp</a>
+    <script src="/js/main.js" defer></script>
   </body>
 </html>
