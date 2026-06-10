@@ -6,14 +6,14 @@ import { orderService } from '@/lib/services/order.service';
 import { SafaLogo } from '@/components/shared/SafaLogo';
 import { 
   User, Package, MapPin, Settings, ShoppingBag, 
-  ChevronRight, LogOut, ShieldCheck, TrendingUp, History 
+  ChevronRight, LogOut, ShieldCheck, History
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function ProfilePage() {
   const { user, logout } = useRole();
   const router = useRouter();
-  const [orders, setOrders] = useState<any[]>([]);
+  const [orders, setOrders] = useState<{ id: string; placedAt: string; itemCount: number; grandTotal: number; status: string }[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -155,6 +155,6 @@ export default function ProfilePage() {
 }
 
 // Minimal Link replacement if not imported
-function Link({ href, children, className }: any) {
+function Link({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
    return <a href={href} className={className}>{children}</a>
 }
