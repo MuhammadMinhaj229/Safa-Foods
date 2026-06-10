@@ -99,13 +99,9 @@ function persistSession(session: AppSession | null) {
 export const RoleProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [role, setRoleState] = useState<AppRole>("customer");
   const [user, setUserState] = useState<AppSession | null>(null);
-  const [isDev, setIsDev] = useState(false);
+  const isDev = typeof window !== "undefined" && window.location.hostname === "localhost";
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hostname === "localhost") {
-      setIsDev(true);
-    }
-
     const savedRole = localStorage.getItem(ROLE_STORAGE_KEY);
     const hydratedRole: AppRole = isAppRole(savedRole) ? savedRole : "customer";
 
