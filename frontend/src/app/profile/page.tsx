@@ -6,14 +6,14 @@ import { orderService } from '@/lib/services/order.service';
 import { SafaLogo } from '@/components/shared/SafaLogo';
 import { 
   User, Package, MapPin, Settings, ShoppingBag, 
-  ChevronRight, LogOut, ShieldCheck, TrendingUp, History 
+  ChevronRight, LogOut, ShieldCheck, History
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function ProfilePage() {
   const { user, logout } = useRole();
   const router = useRouter();
-  const [orders, setOrders] = useState<any[]>([]);
+  const [orders, setOrders] = useState<{ id: string; placedAt: string; itemCount: number; grandTotal: number; status: string }[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -52,7 +52,9 @@ export default function ProfilePage() {
                <User className="text-white w-10 h-10 relative z-10" />
                <div className="absolute inset-0 bg-[#A68A56] opacity-0 group-hover:opacity-20 transition-opacity" />
             </div>
-            <h2 className="font-serif italic text-3xl text-[#1E331B] mb-2">{user.identifier?.split('@')[0] || 'Artisan Guest'}</h2>
+            <h2 className="font-serif italic text-3xl text-[#1E331B] mb-2">
+              {'identifier' in user ? user.identifier?.split('@')[0] : user.email?.split('@')[0] || 'Artisan Guest'}
+            </h2>
             <div className="inline-block px-3 py-1 bg-[#1E331B]/10 rounded-full text-[9px] font-black uppercase tracking-widest text-[#1E331B] mb-8">
                Purity Tier: Gold
             </div>
@@ -87,7 +89,9 @@ export default function ProfilePage() {
              <div className="relative z-10 flex flex-col md:flex-row justify-between items-end gap-10">
                 <div>
                    <h1 className="font-serif italic text-6xl text-[#1E331B] mb-4">Pure Operations</h1>
-                   <p className="text-[12px] font-black uppercase tracking-[0.4em] text-[#A68A56] uppercase">Identity: {user.identifier}</p>
+                   <p className="text-[12px] font-black uppercase tracking-[0.4em] text-[#A68A56] uppercase">
+                     Identity: {'identifier' in user ? user.identifier : user.email}
+                   </p>
                 </div>
                 <div className="flex gap-4">
                    <div className="bg-white p-6 rounded-2xl shadow-lg text-center border border-[#1E331B]/5">
@@ -151,6 +155,6 @@ export default function ProfilePage() {
 }
 
 // Minimal Link replacement if not imported
-function Link({ href, children, className }: any) {
+function Link({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
    return <a href={href} className={className}>{children}</a>
 }

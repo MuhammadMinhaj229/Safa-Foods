@@ -12,7 +12,7 @@ interface CartItem {
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (item: any) => void;
+  addToCart: (item: { id: string; name: string; price: number | string; image?: string; imagePath?: string }) => void;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
   total: number;
@@ -23,24 +23,30 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [hydrated, setHydrated] = useState(false);
 
   // Persistent Hydration
   useEffect(() => {
     const saved = localStorage.getItem('safa_cart');
-    if (saved) setCart(JSON.parse(saved));
+    if (saved) {
+      setCart(JSON.parse(saved));
+    }
+    setHydrated(true);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('safa_cart', JSON.stringify(cart));
-  }, [cart]);
+    if (hydrated) {
+      localStorage.setItem('safa_cart', JSON.stringify(cart));
+    }
+  }, [cart, hydrated]);
 
-  const addToCart = (product: any) => {
+  const addToCart = (product: { id: string; name: string; price: number | string; image?: string; imagePath?: string }) => {
     setCart(prev => {
       const existing = prev.find(i => i.id === product.id);
       if (existing) {
         return prev.map(i => i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i);
       }
-      return [...prev, { id: product.id, name: product.name, price: Number(product.price), quantity: 1, image: product.imagePath || product.image }];
+      return [...prev, { id: product.id, name: product.name, price: Number(product.price), quantity: 1, image: product.imagePath || product.image || '' }];
     });
   };
 

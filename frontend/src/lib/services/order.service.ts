@@ -69,7 +69,7 @@ export const orderService = {
   /**
    * Retrieves order history for a specific customer.
    */
-  getCustomerOrders: async (): Promise<any[]> => {
-    return await apiClient<any[]>('/orders');
+  getCustomerOrders: async (): Promise<{ id: string; placedAt: string; itemCount: number; grandTotal: number; status: string }[]> => {
+    return await apiClient<{ id: string; placedAt: string; itemCount: number; grandTotal: number; status: string }[]>('/orders');
   }
 };
