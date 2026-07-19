@@ -1,4 +1,5 @@
 [build]
+  base = "safa landing page"
   publish = "."
 
 [[redirects]]
