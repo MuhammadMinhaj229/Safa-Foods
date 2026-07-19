@@ -52,7 +52,7 @@ export default function ProfilePage() {
                <User className="text-white w-10 h-10 relative z-10" />
                <div className="absolute inset-0 bg-[#A68A56] opacity-0 group-hover:opacity-20 transition-opacity" />
             </div>
-            <h2 className="font-serif italic text-3xl text-[#1E331B] mb-2">{user.identifier?.split('@')[0] || 'Artisan Guest'}</h2>
+            <h2 className="font-serif italic text-3xl text-[#1E331B] mb-2">{(user.role === 'customer' ? user.identifier : user.email)?.split('@')[0] || 'Artisan Guest'}</h2>
             <div className="inline-block px-3 py-1 bg-[#1E331B]/10 rounded-full text-[9px] font-black uppercase tracking-widest text-[#1E331B] mb-8">
                Purity Tier: Gold
             </div>
@@ -87,7 +87,7 @@ export default function ProfilePage() {
              <div className="relative z-10 flex flex-col md:flex-row justify-between items-end gap-10">
                 <div>
                    <h1 className="font-serif italic text-6xl text-[#1E331B] mb-4">Pure Operations</h1>
-                   <p className="text-[12px] font-black uppercase tracking-[0.4em] text-[#A68A56] uppercase">Identity: {user.identifier}</p>
+                   <p className="text-[12px] font-black uppercase tracking-[0.4em] text-[#A68A56] uppercase">Identity: {user.role === 'customer' ? user.identifier : user.email}</p>
                 </div>
                 <div className="flex gap-4">
                    <div className="bg-white p-6 rounded-2xl shadow-lg text-center border border-[#1E331B]/5">
