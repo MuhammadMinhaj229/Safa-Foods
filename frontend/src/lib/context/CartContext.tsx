@@ -12,7 +12,7 @@ interface CartItem {
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (item: any) => void;
+  addToCart: (item: any) => void; // eslint-disable-line @typescript-eslint/no-explicit-any
   removeFromCart: (id: string) => void;
   clearCart: () => void;
   total: number;
@@ -22,19 +22,19 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
-
-  // Persistent Hydration
-  useEffect(() => {
-    const saved = localStorage.getItem('safa_cart');
-    if (saved) setCart(JSON.parse(saved));
-  }, []);
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem('safa_cart');
+      if (saved) return JSON.parse(saved);
+    }
+    return [];
+  });
 
   useEffect(() => {
     localStorage.setItem('safa_cart', JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (product: any) => {
+  const addToCart = (product: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
     setCart(prev => {
       const existing = prev.find(i => i.id === product.id);
       if (existing) {

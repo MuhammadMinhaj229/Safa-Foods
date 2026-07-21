@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation';
 export default function ProfilePage() {
   const { user, logout } = useRole();
   const router = useRouter();
-  const [orders, setOrders] = useState<any[]>([]);
+  const [orders, setOrders] = useState<Record<string, unknown>[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -116,20 +116,20 @@ export default function ProfilePage() {
              ) : orders.length > 0 ? (
                 <div className="space-y-6">
                    {orders.map(order => (
-                      <div key={order.id} className="glass-panel p-8 rounded-2xl border border-white hover:border-[#A68A56]/30 transition-all group">
+                      <div key={order.id as string} className="glass-panel p-8 rounded-2xl border border-white hover:border-[#A68A56]/30 transition-all group">
                          <div className="flex justify-between items-center">
                             <div className="flex items-center gap-6">
                                <div className="w-16 h-16 bg-[#F4F1EA] rounded-full flex items-center justify-center">
                                   <ShoppingBag className="text-[#A68A56]" />
                                </div>
                                <div>
-                                  <p className="text-[10px] font-black text-[#6B705C] uppercase tracking-widest mb-1">{new Date(order.placedAt).toLocaleDateString()} • Batch #{order.id.slice(0,8)}</p>
-                                  <p className="font-serif italic text-2xl text-[#1E331B]">{order.itemCount} Items Delivered</p>
+                                  <p className="text-[10px] font-black text-[#6B705C] uppercase tracking-widest mb-1">{new Date(order.placedAt as string).toLocaleDateString()} • Batch #{(order.id as string).slice(0,8)}</p>
+                                  <p className="font-serif italic text-2xl text-[#1E331B]">{order.itemCount as number} Items Delivered</p>
                                </div>
                             </div>
                             <div className="text-right">
-                               <p className="text-xl font-serif italic mb-1">₹{order.grandTotal}</p>
-                               <span className="px-3 py-1 bg-green-50 text-green-600 text-[9px] font-black uppercase tracking-widest rounded-full">{order.status}</span>
+                               <p className="text-xl font-serif italic mb-1">₹{order.grandTotal as number}</p>
+                               <span className="px-3 py-1 bg-green-50 text-green-600 text-[9px] font-black uppercase tracking-widest rounded-full">{order.status as string}</span>
                             </div>
                          </div>
                       </div>
@@ -151,6 +151,6 @@ export default function ProfilePage() {
 }
 
 // Minimal Link replacement if not imported
-function Link({ href, children, className }: any) {
+function Link({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
    return <a href={href} className={className}>{children}</a>
 }
