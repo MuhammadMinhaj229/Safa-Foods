@@ -1,285 +1,683 @@
 "use client";
 
 import Link from "next/link";
-import { HeartHandshake, Leaf, ShieldCheck, Truck } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import {
+  Baby,
+  Briefcase,
+  Globe2,
+  Heart,
+  Leaf,
+  MapPin,
+  MessageCircle,
+  PackageCheck,
+  ShieldCheck,
+  Sparkles,
+  Truck,
+  Users,
+} from "lucide-react";
 
 import { Hero } from "@/components/home/Hero";
-import { ProductCard } from "@/components/shop/ProductCard";
-import {
-  heroHighlights,
-  homeCollections,
-  journalEntries,
-  products,
-  promisePoints,
-  subscriptionPlans,
-} from "@/data/site";
-
-const promiseIcons = [Leaf, ShieldCheck, HeartHandshake, Truck];
+import { brand } from "@/data/site";
 
 export const CustomerHome = () => {
   return (
     <div className="bg-[#f6f1e7] text-[#1f3322]">
       <Hero />
-      <PromiseBand />
-      <CollectionsSection />
-      <SubscriptionSpotlight />
-      <KitchenWisdomSection />
+      <ProblemSection />
+      <IntroduceSafa />
+      <ForEveryHome />
+      <HomemadeProducts />
+      <FamiliesAbroad />
+      <HowItWorks />
+      <WhyTrustSafa />
+      <FutureVision />
+      <FinalCTA />
     </div>
   );
 };
 
-function PromiseBand() {
-  return (
-    <section className="bg-[#173d1d] px-4 py-12 text-[#efe5cf] sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 xl:grid-cols-4">
-        {promisePoints.map((point, index) => {
-          const Icon = promiseIcons[index];
+/* ------------------------------------------------------------------ */
+/* Scroll reveal helper                                                */
+/* ------------------------------------------------------------------ */
 
-          return (
-            <div
-              key={point.title}
-              className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left"
-            >
-              <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#7d8c5f]/35 text-[#c1a566]">
-                <Icon size={24} strokeWidth={1.5} />
+function Reveal({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+      } ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+function SectionEyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="text-[11px] font-bold uppercase tracking-[0.42em] text-[#b49761]">
+      {children}
+    </p>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. Problem                                                          */
+/* ------------------------------------------------------------------ */
+
+function ProblemSection() {
+  return (
+    <section className="px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <SectionEyebrow>The Everyday Struggle</SectionEyebrow>
+          <h2 className="mt-6 font-serif text-[2.6rem] italic leading-[1.02] text-[#1f3322] sm:text-[3.6rem]">
+            Running a home shouldn&apos;t feel like a daily race
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#6d7266]">
+            Between market runs, traffic, and the constant worry of what&apos;s really
+            in your food, the joy of cooking gets lost. It doesn&apos;t have to.
+          </p>
+        </Reveal>
+
+        <div className="mt-16 grid gap-6 lg:grid-cols-2">
+          <Reveal>
+            <article className="group relative h-full overflow-hidden rounded-[2rem] border border-[#e6d8bf] bg-white shadow-[0_18px_45px_rgba(40,29,16,0.06)]">
+              <div className="relative">
+                <img
+                  src="/images/market-chaos.png"
+                  alt="A crowded, time-consuming morning market run"
+                  className="h-72 w-full object-cover grayscale-[0.35] transition duration-700 group-hover:grayscale-0"
+                />
+                <span className="absolute left-6 top-6 rounded-full bg-[#7a2020] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-white">
+                  Before Safa
+                </span>
               </div>
-              <div>
-                <p className="text-[12px] font-bold uppercase tracking-[0.38em]">{point.title}</p>
-                <p className="mt-3 max-w-xs text-sm leading-7 text-[#d7d1c1]">{point.description}</p>
+              <div className="px-8 py-8">
+                <h3 className="font-serif text-3xl italic text-[#1f3322]">
+                  Crowded markets, wasted hours
+                </h3>
+                <ul className="mt-5 space-y-3 text-base leading-7 text-[#6d7266]">
+                  <li>Daily trips through traffic just for basics.</li>
+                  <li>No clarity on freshness or preservatives.</li>
+                  <li>Less time left for the family that matters.</li>
+                </ul>
               </div>
-            </div>
-          );
-        })}
+            </article>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <article className="group relative h-full overflow-hidden rounded-[2rem] border border-[#173d1d]/15 bg-[#173d1d] text-[#efe5cf] shadow-[0_18px_45px_rgba(23,61,29,0.18)]">
+              <div className="relative">
+                <img
+                  src="/images/family-cooking.png"
+                  alt="A family cooking together at home after one simple order"
+                  className="h-72 w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                />
+                <span className="absolute left-6 top-6 rounded-full bg-[#b49761] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[#17311d]">
+                  With Safa
+                </span>
+              </div>
+              <div className="px-8 py-8">
+                <h3 className="font-serif text-3xl italic text-white">
+                  One WhatsApp message, dinner sorted
+                </h3>
+                <ul className="mt-5 space-y-3 text-base leading-7 text-[#d7d1c1]">
+                  <li>Fresh essentials arrive at your door.</li>
+                  <li>Made daily, preservative-free, origin certified.</li>
+                  <li>More time for the kitchen to feel like home again.</li>
+                </ul>
+              </div>
+            </article>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
 }
 
-function CollectionsSection() {
+/* ------------------------------------------------------------------ */
+/* 3. Introduce Safa                                                   */
+/* ------------------------------------------------------------------ */
+
+function IntroduceSafa() {
+  return (
+    <section className="px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <Reveal>
+          <div className="relative">
+            <div className="overflow-hidden rounded-[2.5rem] border-[10px] border-white bg-white shadow-[0_28px_70px_rgba(53,39,18,0.14)]">
+              <img
+                src="/images/basket-essentials.png"
+                alt="A Safa Foods basket revealing the range of fresh kitchen essentials"
+                className="h-[26rem] w-full object-cover transition duration-700 hover:scale-[1.03] sm:h-[30rem]"
+              />
+            </div>
+            <div className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full bg-[#173d1d] px-6 py-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#efe5cf] shadow-lg">
+              <Sparkles size={15} className="text-[#c1a566]" />
+              A basket built for your kitchen
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <div className="max-w-xl">
+            <SectionEyebrow>Meet Safa Foods</SectionEyebrow>
+            <h2 className="mt-6 font-serif text-[2.6rem] italic leading-[1.02] text-[#1f3322] sm:text-[3.6rem]">
+              We protect the daily life of Telangana families
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-[#6d7266]">
+              Safa Foods isn&apos;t just another paste brand. We make fresh, trustworthy
+              kitchen essentials effortless to get &mdash; so the people you love always
+              have a happy kitchen, without the daily grind of sourcing it themselves.
+            </p>
+            <p className="mt-5 text-lg leading-8 text-[#6d7266]">
+              Everything is made fresh daily in Warangal, packed hygienically, and
+              delivered locally with pricing you can see before you order. No hidden
+              charges, no preservatives, no compromise.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {["Origin Certified", "Made Fresh Daily", "100% Preservative Free"].map(
+                (chip) => (
+                  <span
+                    key={chip}
+                    className="inline-flex items-center gap-2 rounded-full border border-[#dcc8a0] bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-[#8a7440]"
+                  >
+                    <Leaf size={13} />
+                    {chip}
+                  </span>
+                ),
+              )}
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. For Every Home                                                   */
+/* ------------------------------------------------------------------ */
+
+const homeAudiences = [
+  {
+    icon: Briefcase,
+    title: "For Busy Professionals",
+    description:
+      "No time for daily market runs? Keep your kitchen stocked with one message and cook a real meal even on your busiest days.",
+  },
+  {
+    icon: Users,
+    title: "For Growing Families",
+    description:
+      "When someone should look after your home the way your own family would, Safa quietly keeps the essentials flowing.",
+  },
+  {
+    icon: Baby,
+    title: "For Parents & Elders",
+    description:
+      "Fresh, clean, preservative-free food you can trust for the people who raised you and the little ones you are raising.",
+  },
+];
+
+function ForEveryHome() {
+  return (
+    <section className="bg-[#efe7d6] px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <SectionEyebrow>For Every Home</SectionEyebrow>
+          <h2 className="mt-6 font-serif text-[2.6rem] italic leading-[1.02] text-[#1f3322] sm:text-[3.6rem]">
+            Care that fits the way your family lives
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#6d7266]">
+            Whatever your kitchen looks like, we help families keep a happy one.
+          </p>
+        </Reveal>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
+          {homeAudiences.map((audience, index) => {
+            const Icon = audience.icon;
+            return (
+              <Reveal key={audience.title} delay={index * 120}>
+                <article className="group h-full rounded-[2rem] border border-[#e2d3b6] bg-[#faf6ee] px-8 py-10 shadow-[0_16px_40px_rgba(43,30,16,0.05)] transition-transform duration-300 hover:-translate-y-2">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#173d1d] text-[#c1a566]">
+                    <Icon size={26} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="mt-7 font-serif text-3xl italic text-[#1f3322]">
+                    {audience.title}
+                  </h3>
+                  <p className="mt-4 text-base leading-7 text-[#6d7266]">
+                    {audience.description}
+                  </p>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. Homemade Products                                                */
+/* ------------------------------------------------------------------ */
+
+const liveProducts = [
+  {
+    slug: "premium-ginger-garlic-paste",
+    name: "Ginger Garlic Paste",
+    note: "Our hero. Balanced, kitchen-ready flavour for curry, biryani and marinades.",
+    price: "Rs. 99",
+    image: "/images/product-ginger-garlic.png",
+  },
+  {
+    slug: "turmeric-powder",
+    name: "Turmeric",
+    note: "Pure, vibrant and aromatic turmeric ground for everyday home cooking.",
+    price: "Rs. 89",
+    image: "/images/product-turmeric.png",
+  },
+  {
+    slug: "red-chilli-powder",
+    name: "Red Chilli",
+    note: "Deep colour and honest heat, milled fresh for authentic Telangana flavour.",
+    price: "Rs. 79",
+    image: "/images/product-red-chilli.png",
+  },
+];
+
+const comingSoon = [
+  { name: "Garlic Paste", phase: "Phase 2" },
+  { name: "Green Chilli Paste", phase: "Phase 2" },
+  { name: "Festival Combo Packs", phase: "Phase 3" },
+];
+
+function HomemadeProducts() {
   return (
     <section className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-12 lg:grid-cols-[0.34fr_1fr] xl:gap-16">
-          <div className="space-y-8">
-            <div>
-              <h2 className="font-serif text-5xl italic text-[#1f3322] sm:text-6xl">Collections</h2>
-              <div className="mt-4 h-px bg-[#e2d8c7]" />
-            </div>
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <SectionEyebrow>Homemade Products</SectionEyebrow>
+          <h2 className="mt-6 font-serif text-[2.6rem] italic leading-[1.02] text-[#1f3322] sm:text-[3.6rem]">
+            Made fresh today, in small honest batches
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#6d7266]">
+            We start with the essentials every Telangana kitchen relies on, and grow
+            our range one carefully-made product at a time.
+          </p>
+        </Reveal>
 
-            <nav className="space-y-6">
-              {homeCollections.map((collection, index) => (
-                <article key={collection.name} className="border-b border-[#ece2d2] pb-6">
-                  <Link
-                    href={collection.href}
-                    className="block text-[15px] font-bold uppercase tracking-[0.28em] text-[#1f3322] transition hover:text-[#b49761]"
-                  >
-                    <span className={index === 0 ? "border-l border-[#b49761] pl-4" : ""}>
-                      {collection.name}
-                    </span>
-                  </Link>
-                  <p className="mt-3 max-w-xs text-base leading-7 text-[#6d7266]">
-                    {collection.description}
-                  </p>
-                </article>
-              ))}
-            </nav>
-
-            <div className="overflow-hidden rounded-[1.75rem] bg-[#173d1d] px-8 py-10 text-white shadow-[0_24px_60px_rgba(24,46,28,0.18)]">
-              <h3 className="font-serif text-5xl italic leading-tight">Fresh Subscriptions</h3>
-              <p className="mt-5 max-w-sm text-base leading-8 text-[#dde4d7]">
-                Get weekly paste deliveries at a discount. Clear Monday scheduling, simple
-                renewal, and local support.
-              </p>
-              <Link
-                href="/subscription"
-                className="mt-8 inline-flex w-full items-center justify-center border border-[#5b6d4f] px-8 py-4 text-[11px] font-bold uppercase tracking-[0.34em] text-[#e9d59b] transition hover:bg-white/5"
-              >
-                View Plans
-              </Link>
-            </div>
-          </div>
-
-          <div className="space-y-10">
-            <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] xl:items-stretch">
-              <div className="overflow-hidden rounded-[2rem] border border-[#e8decc] bg-white shadow-[0_18px_55px_rgba(38,29,16,0.06)]">
-                <img
-                  src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&q=80&w=1400"
-                  alt="Safa collection feature"
-                  className="h-72 w-full object-cover"
-                />
-                <div className="px-8 py-8">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.38em] text-[#b49761]">
-                    This Week&apos;s Kitchen Base
-                  </p>
-                  <h3 className="mt-4 font-serif text-4xl italic leading-tight text-[#1f3322] sm:text-5xl">
-                    Fresh paste, built for real home cooking
-                  </h3>
-                  <p className="mt-5 max-w-2xl text-lg leading-8 text-[#6d7266]">
-                    Start with our hero ginger garlic paste, then build your kitchen with
-                    garlic-only, green chilli, and future combo packs.
-                  </p>
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
+          {liveProducts.map((product, index) => (
+            <Reveal key={product.slug} delay={index * 120}>
+              <article className="group h-full overflow-hidden rounded-[2rem] border border-[#ece3d2] bg-white shadow-[0_18px_45px_rgba(40,29,16,0.08)] transition duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(40,29,16,0.12)]">
+                <div className="relative overflow-hidden bg-[#f6f1e7]">
+                  <span className="absolute left-5 top-5 z-10 rounded-full bg-[#173d1d] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.28em] text-white">
+                    Live Now
+                  </span>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="aspect-[4/4] w-full object-cover transition duration-700 group-hover:scale-[1.05]"
+                  />
                 </div>
-              </div>
+                <div className="px-7 py-8 text-center">
+                  <h3 className="font-serif text-4xl italic text-[#1f3322]">
+                    {product.name}
+                  </h3>
+                  <p className="mx-auto mt-4 max-w-xs text-base leading-7 text-[#6d7266]">
+                    {product.note}
+                  </p>
+                  <p className="mt-5 text-4xl font-bold tracking-[-0.04em] text-[#17311d]">
+                    {product.price}
+                  </p>
+                  <div className="mt-6 flex flex-col gap-3">
+                    <a
+                      href={brand.whatsappHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-[#173d1d] px-6 py-4 text-[11px] font-bold uppercase tracking-[0.3em] text-white transition hover:bg-[#214c28]"
+                    >
+                      <MessageCircle size={15} />
+                      Order on WhatsApp
+                    </a>
+                    <Link
+                      href="/shop"
+                      className="inline-flex items-center justify-center border border-[#d7ccb7] px-6 py-4 text-[11px] font-bold uppercase tracking-[0.3em] text-[#1f3322] transition hover:bg-[#faf5ea]"
+                    >
+                      View Details
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
 
-              <div className="rounded-[2rem] border border-[#e8decc] bg-[#faf6ee] px-8 py-9 shadow-[0_18px_55px_rgba(38,29,16,0.05)]">
-                <p className="text-[11px] font-bold uppercase tracking-[0.38em] text-[#b49761]">
-                  Why Homes Repeat Order
+        <Reveal className="mt-14">
+          <div className="rounded-[2rem] border border-dashed border-[#d3c19c] bg-[#faf6ee] px-8 py-10">
+            <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-[#b49761]">
+                  Growing Soon
                 </p>
-                <div className="mt-8 space-y-8">
-                  {[
-                    "Balanced kitchen-ready flavour for curry, biryani, and marinades.",
-                    "Clear weekly delivery rhythm for subscription customers.",
-                    "Small-batch freshness instead of warehouse-style stock aging.",
-                  ].map((line) => (
-                    <div key={line} className="border-b border-[#e4dccb] pb-6 last:border-b-0 last:pb-0">
-                      <p className="text-lg leading-8 text-[#4f5a50]">{line}</p>
-                    </div>
-                  ))}
-                </div>
+                <h3 className="mt-3 font-serif text-3xl italic text-[#1f3322]">
+                  More kitchen essentials on the way
+                </h3>
               </div>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-2">
-              {products.map((product) => (
-                <ProductCard
-                  key={product.slug ?? product.name}
-                  product={{
-                    id: product.slug ?? product.name,
-                    name: product.name,
-                    price: parseDisplayPrice(product.price),
-                    imagePath: imageForProduct(product.name),
-                    sizes: product.sizes,
-                    tag: product.badges[0],
-                    specs: product.subtitle,
-                  }}
-                />
-              ))}
-            </div>
-
-            <div className="overflow-hidden rounded-[2rem] border border-[#e5dccf] bg-white px-6 py-10 shadow-[0_18px_55px_rgba(38,29,16,0.06)] sm:px-8">
-              <div className="flex flex-wrap items-center justify-between gap-6">
-                <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.38em] text-[#b49761]">
-                    Subscription Plans
-                  </p>
-                  <h3 className="mt-4 font-serif text-4xl italic text-[#1f3322] sm:text-5xl">
-                    Never Run Out
-                  </h3>
-                </div>
-                <Link
-                  href="/subscription"
-                  className="inline-flex items-center justify-center border border-[#d1c3a8] px-8 py-4 text-[11px] font-bold uppercase tracking-[0.34em] text-[#1f3322] transition hover:bg-[#f7f2e9]"
-                >
-                  Compare Plans
-                </Link>
-              </div>
-
-              <div className="mt-10 grid gap-6 lg:grid-cols-3">
-                {subscriptionPlans.map((plan) => (
-                  <article
-                    key={plan.code}
-                    className={`border px-6 py-8 text-center ${
-                      plan.featured
-                        ? "border-[#173d1d] bg-[#173d1d] text-white"
-                        : "border-[#ece3d2] bg-[#fbf9f4] text-[#1f3322]"
-                    }`}
+              <div className="flex flex-wrap justify-center gap-3">
+                {comingSoon.map((item) => (
+                  <span
+                    key={item.name}
+                    className="inline-flex flex-col items-center rounded-2xl border border-[#e2d3b6] bg-white px-5 py-3 text-center"
                   >
-                    <h4 className="font-serif text-4xl italic">{plan.name}</h4>
-                    <p
-                      className={`mt-5 text-sm leading-7 ${
-                        plan.featured ? "text-[#dfddcf]" : "text-[#717565]"
-                      }`}
-                    >
-                      {plan.summary}
-                    </p>
-                    <div
-                      className={`mx-auto mt-8 max-w-[11rem] px-5 py-5 text-center text-[12px] font-bold uppercase tracking-[0.18em] ${
-                        plan.featured ? "bg-[#b49761] text-[#17311d]" : "bg-white"
-                      }`}
-                    >
-                      Includes
-                      <div className="mt-2 text-xl tracking-normal">{plan.includes}</div>
-                    </div>
-                    <p className="mt-8 text-5xl font-bold tracking-[-0.04em]">
-                      {plan.price?.replace(" / month", "")}
-                      <span className="text-xl font-medium opacity-70">/month</span>
-                    </p>
-                    <p
-                      className={`mt-5 text-[11px] font-bold uppercase tracking-[0.34em] ${
-                        plan.featured ? "text-[#dfddcf]" : "text-[#9c9b8e]"
-                      }`}
-                    >
-                      {plan.savings}
-                    </p>
-                  </article>
+                    <span className="text-sm font-bold text-[#1f3322]">
+                      {item.name}
+                    </span>
+                    <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.24em] text-[#b49761]">
+                      {item.phase} &middot; Coming Soon
+                    </span>
+                  </span>
                 ))}
               </div>
             </div>
           </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* 6. For Families Abroad                                              */
+/* ------------------------------------------------------------------ */
+
+function FamiliesAbroad() {
+  return (
+    <section className="bg-[#173d1d] px-4 py-24 text-[#efe5cf] sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
+        <Reveal>
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.42em] text-[#c1a566]">
+              For Families Abroad
+            </p>
+            <h2 className="mt-6 font-serif text-[2.7rem] italic leading-[1.02] text-white sm:text-[3.8rem]">
+              A Taste of Home, Wherever You Are
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-[#d7d1c1]">
+              When a husband or son is working in the Gulf, home should still take care
+              of the family the way family does. And for our people living far away,
+              that first spoonful of a familiar flavour can bring Warangal right back.
+            </p>
+            <p className="mt-5 text-lg leading-8 text-[#d7d1c1]">
+              From Ariselu and Murukulu to Sarvapindi, our essentials carry the taste
+              of real festivals and everyday meals. Neatly packed and{" "}
+              <span className="font-semibold text-[#e9d59b]">
+                suitable for carrying abroad
+              </span>{" "}
+              &mdash; so a piece of home always travels with you.
+            </p>
+            <a
+              href={brand.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-9 inline-flex items-center gap-3 border border-[#5b6d4f] px-8 py-4 text-[11px] font-bold uppercase tracking-[0.3em] text-[#e9d59b] transition hover:bg-white/5"
+            >
+              <Globe2 size={16} />
+              Ask Us on WhatsApp
+            </a>
+          </div>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <div className="overflow-hidden rounded-[2.5rem] border-[10px] border-[#efe5cf]/10 bg-[#0f2b15] shadow-[0_28px_70px_rgba(0,0,0,0.3)]">
+            <img
+              src="/images/festival-snacks.png"
+              alt="Traditional Telangana festival snacks like Ariselu, Murukulu and Sarvapindi"
+              className="h-[26rem] w-full object-cover transition duration-700 hover:scale-[1.03] sm:h-[32rem]"
+            />
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* 7. How It Works                                                     */
+/* ------------------------------------------------------------------ */
+
+const steps = [
+  {
+    icon: MessageCircle,
+    title: "Message Us",
+    description:
+      "Send your order on WhatsApp. No apps, no forms &mdash; just a simple message like you would to family.",
+  },
+  {
+    icon: PackageCheck,
+    title: "We Make It Fresh",
+    description:
+      "Your essentials are prepared in small, hygienic batches the same day and packed with care.",
+  },
+  {
+    icon: Truck,
+    title: "Delivered To You",
+    description:
+      "We deliver locally across Warangal and Hanamkonda, with clear pricing and quick, reliable service.",
+  },
+];
+
+function HowItWorks() {
+  return (
+    <section className="px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <SectionEyebrow>How It Works</SectionEyebrow>
+          <h2 className="mt-6 font-serif text-[2.6rem] italic leading-[1.02] text-[#1f3322] sm:text-[3.6rem]">
+            Effortless, from message to mealtime
+          </h2>
+        </Reveal>
+
+        <div className="relative mt-16 grid gap-8 md:grid-cols-3">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <Reveal key={step.title} delay={index * 140}>
+                <article className="relative h-full rounded-[2rem] border border-[#ece3d2] bg-white px-8 py-10 text-center shadow-[0_16px_40px_rgba(43,30,16,0.05)]">
+                  <span className="absolute right-7 top-7 font-serif text-6xl italic text-[#efe2c4]">
+                    {index + 1}
+                  </span>
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#173d1d] text-[#c1a566]">
+                    <Icon size={26} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="mt-7 font-serif text-3xl italic text-[#1f3322]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-4 text-base leading-7 text-[#6d7266]">
+                    {step.description}
+                  </p>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-function SubscriptionSpotlight() {
+/* ------------------------------------------------------------------ */
+/* 8. Why Families Trust Safa                                          */
+/* ------------------------------------------------------------------ */
+
+const trustPillars = [
+  {
+    icon: Leaf,
+    title: "All Natural",
+    description: "Fresh ingredients. No hidden preservatives. No shortcuts, ever.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Hygienic Batches",
+    description: "Prepared in clean, controlled runs made for daily household use.",
+  },
+  {
+    icon: Heart,
+    title: "Treated Like Family",
+    description: "We look after your kitchen the way we look after our own.",
+  },
+  {
+    icon: MapPin,
+    title: "Truly Local",
+    description: "Built for Warangal and Hanamkonda, with transparent local pricing.",
+  },
+];
+
+const stats = [
+  { value: 100, suffix: "%", label: "Preservative Free" },
+  { value: 45, suffix: " min", label: "Local Delivery" },
+  { value: 3, suffix: "", label: "Essentials Live Today" },
+  { value: 1, suffix: " msg", label: "To Order on WhatsApp" },
+];
+
+function useCountUp(target: number, active: boolean, duration = 1600) {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!active) return;
+    let frame: number;
+    const start = performance.now();
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(eased * target));
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [target, active, duration]);
+
+  return value;
+}
+
+function StatItem({
+  value,
+  suffix,
+  label,
+  active,
+}: {
+  value: number;
+  suffix: string;
+  label: string;
+  active: boolean;
+}) {
+  const count = useCountUp(value, active);
   return (
-    <section className="px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl rounded-[2rem] border border-[#ece2d0] bg-white px-8 py-16 shadow-[0_16px_40px_rgba(43,30,16,0.05)]">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-[11px] font-bold uppercase tracking-[0.45em] text-[#b49761]">
-            {heroHighlights.join(" | ")}
-          </p>
-          <h2 className="mt-8 font-serif text-[2.9rem] italic leading-[1] text-[#1f3322] sm:text-[5rem]">
-            Subscribe &amp; Save
-          </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#6d7266] sm:text-xl sm:leading-9">
-            Fresh paste delivered to your door on your schedule. Cancel anytime, no
-            contracts, just real flavour and dependable local service.
-          </p>
-        </div>
-      </div>
-    </section>
+    <div className="text-center">
+      <p className="font-serif text-5xl italic text-[#c1a566] sm:text-6xl">
+        {count}
+        {suffix}
+      </p>
+      <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#d7d1c1]">
+        {label}
+      </p>
+    </div>
   );
 }
 
-function KitchenWisdomSection() {
+function WhyTrustSafa() {
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [statsActive, setStatsActive] = useState(false);
+
+  useEffect(() => {
+    const node = statsRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="px-4 pb-24 pt-10 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl rounded-[2rem] border border-[#ece2d0] bg-white px-6 py-16 shadow-[0_16px_50px_rgba(43,30,16,0.05)] sm:px-10">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="font-serif text-[3rem] italic leading-none text-[#1f3322] sm:text-[5rem]">
-            Kitchen Wisdom
+    <section className="bg-[#efe7d6] px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <SectionEyebrow>Why Families Trust Safa</SectionEyebrow>
+          <h2 className="mt-6 font-serif text-[2.6rem] italic leading-[1.02] text-[#1f3322] sm:text-[3.6rem]">
+            Peace of mind, packed into every jar
           </h2>
-          <p className="mt-6 text-lg leading-8 text-[#6d7266] sm:text-xl sm:leading-9">
-            Tips, recipes, and artisan techniques from our Warangal kitchen to yours.
-          </p>
+        </Reveal>
+
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {trustPillars.map((pillar, index) => {
+            const Icon = pillar.icon;
+            return (
+              <Reveal key={pillar.title} delay={index * 100}>
+                <article className="h-full rounded-[1.75rem] border border-[#e2d3b6] bg-[#faf6ee] px-7 py-9 transition-transform duration-300 hover:-translate-y-2">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#d3c19c] text-[#b49761]">
+                    <Icon size={24} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="mt-6 text-[13px] font-bold uppercase tracking-[0.24em] text-[#1f3322]">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-3 text-base leading-7 text-[#6d7266]">
+                    {pillar.description}
+                  </p>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
 
-        <div className="mt-16 grid gap-12 md:grid-cols-2">
-          {journalEntries.map((entry) => (
-            <article key={entry.title} className="space-y-6">
-              <div className="overflow-hidden bg-[#f6f1e7] shadow-[0_18px_35px_rgba(47,35,18,0.08)]">
-                <img
-                  src={entry.image}
-                  alt={entry.title}
-                  className="h-64 w-full object-cover transition duration-700 hover:scale-[1.03]"
-                />
-              </div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.4em] text-[#b49761]">
-                {entry.date}
-              </p>
-              <h3 className="max-w-lg font-serif text-4xl italic leading-tight text-[#1f3322] sm:text-5xl">
-                {entry.title}
-              </h3>
-              <p className="max-w-xl text-lg leading-8 text-[#6d7266] sm:leading-9">{entry.excerpt}</p>
-              <Link
-                href={entry.href}
-                className="inline-flex border-b border-[#1f3322] pb-2 text-[11px] font-bold uppercase tracking-[0.34em] text-[#1f3322]"
-              >
-                Read Post
-              </Link>
-            </article>
+        <div
+          ref={statsRef}
+          className="mt-16 grid gap-10 rounded-[2rem] bg-[#173d1d] px-8 py-14 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {stats.map((stat) => (
+            <StatItem key={stat.label} {...stat} active={statsActive} />
           ))}
         </div>
       </div>
@@ -287,19 +685,73 @@ function KitchenWisdomSection() {
   );
 }
 
-function imageForProduct(name: string) {
-  if (/garlic/i.test(name) && !/ginger/i.test(name)) {
-    return "https://images.unsplash.com/photo-1509358273864-bdbaa9bf939f?auto=format&fit=crop&q=80&w=1200";
-  }
+/* ------------------------------------------------------------------ */
+/* 9. Future Vision                                                    */
+/* ------------------------------------------------------------------ */
 
-  if (/green chilli/i.test(name)) {
-    return "https://images.unsplash.com/photo-1604329760661-e71c0c144ce1?auto=format&fit=crop&q=80&w=1200";
-  }
-
-  return "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&q=80&w=1200";
+function FutureVision() {
+  return (
+    <section className="px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl rounded-[2.5rem] border border-[#ece2d0] bg-white px-8 py-16 text-center shadow-[0_16px_50px_rgba(43,30,16,0.05)] sm:px-14">
+        <Reveal>
+          <SectionEyebrow>Our Future Vision</SectionEyebrow>
+          <h2 className="mt-6 font-serif text-[2.6rem] italic leading-[1.02] text-[#1f3322] sm:text-[3.8rem]">
+            Building a Better Local Community
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#6d7266]">
+            Safa Foods is a Warangal brand at heart. As we grow, we want to create
+            local jobs, support neighbourhood kitchens, and make dependable, honest
+            food part of everyday life here &mdash; one home, one family, one happy
+            kitchen at a time.
+          </p>
+          <div className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#f6f1e7] px-6 py-3 text-[12px] font-bold uppercase tracking-[0.24em] text-[#8a7440]">
+            <Heart size={15} className="text-[#b49761]" />
+            We help families keep a happy kitchen
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
 }
 
-function parseDisplayPrice(price: string) {
-  const parsed = Number(price.replace(/[^\d.]/g, ""));
-  return Number.isFinite(parsed) ? parsed : 0;
+/* ------------------------------------------------------------------ */
+/* 10. Final CTA                                                       */
+/* ------------------------------------------------------------------ */
+
+function FinalCTA() {
+  return (
+    <section className="px-4 pb-24 pt-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-[#173d1d] px-8 py-20 text-center text-[#efe5cf] shadow-[0_24px_60px_rgba(23,61,29,0.2)] sm:px-16">
+        <Reveal>
+          <p className="text-[11px] font-bold uppercase tracking-[0.42em] text-[#c1a566]">
+            Let&apos;s Get Started
+          </p>
+          <h2 className="mx-auto mt-6 max-w-3xl font-serif text-[2.8rem] italic leading-[1.02] text-white sm:text-[4.2rem]">
+            Let us take care of your everyday essentials
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#d7d1c1]">
+            Fresh. Trusted. Delivered. Send one message and let your kitchen stay
+            happy &mdash; we&apos;ll handle the rest, like family would.
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href={brand.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary group inline-flex min-w-[14rem] items-center justify-center gap-3 bg-[#b49761] px-9 py-5 text-[12px] font-bold uppercase tracking-[0.3em] text-[#17311d]"
+            >
+              <MessageCircle size={17} className="transition-transform group-hover:scale-110" />
+              Order on WhatsApp
+            </a>
+            <Link
+              href="/shop"
+              className="inline-flex min-w-[12rem] items-center justify-center border border-[#5b6d4f] px-9 py-5 text-[12px] font-bold uppercase tracking-[0.3em] text-[#e9d59b] transition hover:bg-white/5"
+            >
+              Browse Catalogue
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
 }

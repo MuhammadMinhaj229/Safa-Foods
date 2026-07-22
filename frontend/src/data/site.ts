@@ -51,7 +51,8 @@ export const brand = {
   tagline: "Premium Organic",
   description:
     "Premium fresh ginger-garlic paste and homemade essentials delivered across Warangal and Hanakonda with transparent local pricing.",
-  whatsappHref: "https://wa.me/919999999999",
+  whatsappHref: "https://wa.me/917207071874",
+  whatsappNumber: "+91 72070 71874",
 };
 
 export const heroHighlights = [
