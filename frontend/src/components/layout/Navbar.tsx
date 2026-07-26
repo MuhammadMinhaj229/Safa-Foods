@@ -140,11 +140,7 @@ export const Navbar = () => {
                 color={useLightTheme ? "#f3ead5" : "#1E331B"}
                 textColor={useLightTheme ? "#f3ead5" : "#1E331B"}
                 taglineColor={useLightTheme ? "#c8ad71" : "#b49761"}
-                imageClassName={
-                  useLightTheme
-                    ? "brightness-0 invert sepia-[0.22] saturate-[0.9] hue-rotate-[340deg] brightness-[1.05]"
-                    : ""
-                }
+                imageClassName=""
               />
             </Link>
 
