@@ -18,17 +18,14 @@ import {
 } from "lucide-react";
 
 import { Hero } from "@/components/home/Hero";
+import { ServiceGrid } from "@/components/home/ServiceGrid";
 import { brand } from "@/data/site";
 
 export const CustomerHome = () => {
   return (
     <div className="bg-[#f6f1e7] text-[#1f3322]">
       <Hero />
-      <ProblemSection />
-      <IntroduceSafa />
-      <ForEveryHome />
-      <HomemadeProducts />
-      <FamiliesAbroad />
+      <ServiceGrid />
       <HowItWorks />
       <WhyTrustSafa />
       <FutureVision />
@@ -96,136 +93,11 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
 /* 2. Problem                                                          */
 /* ------------------------------------------------------------------ */
 
-function ProblemSection() {
-  return (
-    <section className="px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <SectionEyebrow>The Everyday Struggle</SectionEyebrow>
-          <h2 className="mt-6 font-serif text-[2.6rem] italic leading-[1.02] text-[#1f3322] sm:text-[3.6rem]">
-            Running a home shouldn&apos;t feel like a daily race
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#6d7266]">
-            Between market runs, traffic, and the constant worry of what&apos;s really
-            in your food, the joy of cooking gets lost. It doesn&apos;t have to.
-          </p>
-        </Reveal>
-
-        <div className="mt-16 grid gap-6 lg:grid-cols-2">
-          <Reveal>
-            <article className="group relative h-full overflow-hidden rounded-[2rem] border border-[#e6d8bf] bg-white shadow-[0_18px_45px_rgba(40,29,16,0.06)]">
-              <div className="relative">
-                <img
-                  src="/images/market-chaos.png"
-                  alt="A crowded, time-consuming morning market run"
-                  className="h-72 w-full object-cover grayscale-[0.35] transition duration-700 group-hover:grayscale-0"
-                />
-                <span className="absolute left-6 top-6 rounded-full bg-[#7a2020] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-white">
-                  Before Safa
-                </span>
-              </div>
-              <div className="px-8 py-8">
-                <h3 className="font-serif text-3xl italic text-[#1f3322]">
-                  Crowded markets, wasted hours
-                </h3>
-                <ul className="mt-5 space-y-3 text-base leading-7 text-[#6d7266]">
-                  <li>Daily trips through traffic just for basics.</li>
-                  <li>No clarity on freshness or preservatives.</li>
-                  <li>Less time left for the family that matters.</li>
-                </ul>
-              </div>
-            </article>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <article className="group relative h-full overflow-hidden rounded-[2rem] border border-[#173d1d]/15 bg-[#173d1d] text-[#efe5cf] shadow-[0_18px_45px_rgba(23,61,29,0.18)]">
-              <div className="relative">
-                <img
-                  src="/images/family-cooking.png"
-                  alt="A family cooking together at home after one simple order"
-                  className="h-72 w-full object-cover transition duration-700 group-hover:scale-[1.03]"
-                />
-                <span className="absolute left-6 top-6 rounded-full bg-[#b49761] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[#17311d]">
-                  With Safa
-                </span>
-              </div>
-              <div className="px-8 py-8">
-                <h3 className="font-serif text-3xl italic text-white">
-                  One WhatsApp message, dinner sorted
-                </h3>
-                <ul className="mt-5 space-y-3 text-base leading-7 text-[#d7d1c1]">
-                  <li>Fresh essentials arrive at your door.</li>
-                  <li>Made daily, preservative-free, origin certified.</li>
-                  <li>More time for the kitchen to feel like home again.</li>
-                </ul>
-              </div>
-            </article>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /* 3. Introduce Safa                                                   */
 /* ------------------------------------------------------------------ */
 
-function IntroduceSafa() {
-  return (
-    <section className="px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <Reveal>
-          <div className="relative">
-            <div className="overflow-hidden rounded-[2.5rem] border-[10px] border-white bg-white shadow-[0_28px_70px_rgba(53,39,18,0.14)]">
-              <img
-                src="/images/basket-essentials.png"
-                alt="A Safa Foods basket revealing the range of fresh kitchen essentials"
-                className="h-[26rem] w-full object-cover transition duration-700 hover:scale-[1.03] sm:h-[30rem]"
-              />
-            </div>
-            <div className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full bg-[#173d1d] px-6 py-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#efe5cf] shadow-lg">
-              <Sparkles size={15} className="text-[#c1a566]" />
-              A basket built for your kitchen
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={120}>
-          <div className="max-w-xl">
-            <SectionEyebrow>Meet Safa Foods</SectionEyebrow>
-            <h2 className="mt-6 font-serif text-[2.6rem] italic leading-[1.02] text-[#1f3322] sm:text-[3.6rem]">
-              We protect the daily life of Telangana families
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-[#6d7266]">
-              Safa Foods isn&apos;t just another paste brand. We make fresh, trustworthy
-              kitchen essentials effortless to get &mdash; so the people you love always
-              have a happy kitchen, without the daily grind of sourcing it themselves.
-            </p>
-            <p className="mt-5 text-lg leading-8 text-[#6d7266]">
-              Everything is made fresh daily in Warangal, packed hygienically, and
-              delivered locally with pricing you can see before you order. No hidden
-              charges, no preservatives, no compromise.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {["Origin Certified", "Made Fresh Daily", "100% Preservative Free"].map(
-                (chip) => (
-                  <span
-                    key={chip}
-                    className="inline-flex items-center gap-2 rounded-full border border-[#dcc8a0] bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-[#8a7440]"
-                  >
-                    <Leaf size={13} />
-                    {chip}
-                  </span>
-                ),
-              )}
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /* 4. For Every Home                                                   */
@@ -252,44 +124,6 @@ const homeAudiences = [
   },
 ];
 
-function ForEveryHome() {
-  return (
-    <section className="bg-[#efe7d6] px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <SectionEyebrow>For Every Home</SectionEyebrow>
-          <h2 className="mt-6 font-serif text-[2.6rem] italic leading-[1.02] text-[#1f3322] sm:text-[3.6rem]">
-            Care that fits the way your family lives
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#6d7266]">
-            Whatever your kitchen looks like, we help families keep a happy one.
-          </p>
-        </Reveal>
-
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
-          {homeAudiences.map((audience, index) => {
-            const Icon = audience.icon;
-            return (
-              <Reveal key={audience.title} delay={index * 120}>
-                <article className="group h-full rounded-[2rem] border border-[#e2d3b6] bg-[#faf6ee] px-8 py-10 shadow-[0_16px_40px_rgba(43,30,16,0.05)] transition-transform duration-300 hover:-translate-y-2">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#173d1d] text-[#c1a566]">
-                    <Icon size={26} strokeWidth={1.5} />
-                  </div>
-                  <h3 className="mt-7 font-serif text-3xl italic text-[#1f3322]">
-                    {audience.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-7 text-[#6d7266]">
-                    {audience.description}
-                  </p>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /* 5. Homemade Products                                                */
@@ -325,156 +159,11 @@ const comingSoon = [
   { name: "Festival Combo Packs", phase: "Phase 3" },
 ];
 
-function HomemadeProducts() {
-  return (
-    <section className="px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <SectionEyebrow>Homemade Products</SectionEyebrow>
-          <h2 className="mt-6 font-serif text-[2.6rem] italic leading-[1.02] text-[#1f3322] sm:text-[3.6rem]">
-            Made fresh today, in small honest batches
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#6d7266]">
-            We start with the essentials every Telangana kitchen relies on, and grow
-            our range one carefully-made product at a time.
-          </p>
-        </Reveal>
-
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
-          {liveProducts.map((product, index) => (
-            <Reveal key={product.slug} delay={index * 120}>
-              <article className="group h-full overflow-hidden rounded-[2rem] border border-[#ece3d2] bg-white shadow-[0_18px_45px_rgba(40,29,16,0.08)] transition duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(40,29,16,0.12)]">
-                <div className="relative overflow-hidden bg-[#f6f1e7]">
-                  <span className="absolute left-5 top-5 z-10 rounded-full bg-[#173d1d] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.28em] text-white">
-                    Live Now
-                  </span>
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="aspect-[4/4] w-full object-cover transition duration-700 group-hover:scale-[1.05]"
-                  />
-                </div>
-                <div className="px-7 py-8 text-center">
-                  <h3 className="font-serif text-4xl italic text-[#1f3322]">
-                    {product.name}
-                  </h3>
-                  <p className="mx-auto mt-4 max-w-xs text-base leading-7 text-[#6d7266]">
-                    {product.note}
-                  </p>
-                  <p className="mt-5 text-4xl font-bold tracking-[-0.04em] text-[#17311d]">
-                    {product.price}
-                  </p>
-                  <div className="mt-6 flex flex-col gap-3">
-                    <a
-                      href={brand.whatsappHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-[#173d1d] px-6 py-4 text-[11px] font-bold uppercase tracking-[0.3em] text-white transition hover:bg-[#214c28]"
-                    >
-                      <MessageCircle size={15} />
-                      Order on WhatsApp
-                    </a>
-                    <Link
-                      href="/shop"
-                      className="inline-flex items-center justify-center border border-[#d7ccb7] px-6 py-4 text-[11px] font-bold uppercase tracking-[0.3em] text-[#1f3322] transition hover:bg-[#faf5ea]"
-                    >
-                      View Details
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal className="mt-14">
-          <div className="rounded-[2rem] border border-dashed border-[#d3c19c] bg-[#faf6ee] px-8 py-10">
-            <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-[#b49761]">
-                  Growing Soon
-                </p>
-                <h3 className="mt-3 font-serif text-3xl italic text-[#1f3322]">
-                  More kitchen essentials on the way
-                </h3>
-              </div>
-              <div className="flex flex-wrap justify-center gap-3">
-                {comingSoon.map((item) => (
-                  <span
-                    key={item.name}
-                    className="inline-flex flex-col items-center rounded-2xl border border-[#e2d3b6] bg-white px-5 py-3 text-center"
-                  >
-                    <span className="text-sm font-bold text-[#1f3322]">
-                      {item.name}
-                    </span>
-                    <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.24em] text-[#b49761]">
-                      {item.phase} &middot; Coming Soon
-                    </span>
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /* 6. For Families Abroad                                              */
 /* ------------------------------------------------------------------ */
 
-function FamiliesAbroad() {
-  return (
-    <section className="bg-[#173d1d] px-4 py-24 text-[#efe5cf] sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
-        <Reveal>
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.42em] text-[#c1a566]">
-              For Families Abroad
-            </p>
-            <h2 className="mt-6 font-serif text-[2.7rem] italic leading-[1.02] text-white sm:text-[3.8rem]">
-              A Taste of Home, Wherever You Are
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-[#d7d1c1]">
-              When a husband or son is working in the Gulf, home should still take care
-              of the family the way family does. And for our people living far away,
-              that first spoonful of a familiar flavour can bring Warangal right back.
-            </p>
-            <p className="mt-5 text-lg leading-8 text-[#d7d1c1]">
-              From Ariselu and Murukulu to Sarvapindi, our essentials carry the taste
-              of real festivals and everyday meals. Neatly packed and{" "}
-              <span className="font-semibold text-[#e9d59b]">
-                suitable for carrying abroad
-              </span>{" "}
-              &mdash; so a piece of home always travels with you.
-            </p>
-            <a
-              href={brand.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-9 inline-flex items-center gap-3 border border-[#5b6d4f] px-8 py-4 text-[11px] font-bold uppercase tracking-[0.3em] text-[#e9d59b] transition hover:bg-white/5"
-            >
-              <Globe2 size={16} />
-              Ask Us on WhatsApp
-            </a>
-          </div>
-        </Reveal>
-
-        <Reveal delay={120}>
-          <div className="overflow-hidden rounded-[2.5rem] border-[10px] border-[#efe5cf]/10 bg-[#0f2b15] shadow-[0_28px_70px_rgba(0,0,0,0.3)]">
-            <img
-              src="/images/festival-snacks.png"
-              alt="Traditional Telangana festival snacks like Ariselu, Murukulu and Sarvapindi"
-              className="h-[26rem] w-full object-cover transition duration-700 hover:scale-[1.03] sm:h-[32rem]"
-            />
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /* 7. How It Works                                                     */
