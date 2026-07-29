@@ -4,7 +4,7 @@ import { NextResponse, type NextRequest } from 'next/server';
  * Professional Artisan Middleware
  * Performs sub-millisecond route protection for secure artisan areas.
  */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const session = request.cookies.get('safa_session')?.value;
   const { pathname } = request.nextUrl;
 

@@ -97,39 +97,34 @@ function persistSession(session: AppSession | null) {
 }
 
 export const RoleProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [role, setRoleState] = useState<AppRole>("customer");
-  const [user, setUserState] = useState<AppSession | null>(null);
-  const [isDev, setIsDev] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hostname === "localhost") {
-      setIsDev(true);
+  const [role, setRoleState] = useState<AppRole>(() => {
+    if (typeof window !== "undefined") {
+      const savedRole = localStorage.getItem(ROLE_STORAGE_KEY);
+      return isAppRole(savedRole) ? savedRole : "customer";
     }
-
-    const savedRole = localStorage.getItem(ROLE_STORAGE_KEY);
-    const hydratedRole: AppRole = isAppRole(savedRole) ? savedRole : "customer";
-
-    let hydratedSession: AppSession | null = null;
-    const savedSession = localStorage.getItem(SESSION_STORAGE_KEY);
-    if (savedSession) {
-      try {
-        hydratedSession = normalizeSession(JSON.parse(savedSession), hydratedRole);
-      } catch {
-        hydratedSession = null;
+    return "customer";
+  });
+  const [user, setUserState] = useState<AppSession | null>(() => {
+    if (typeof window !== "undefined") {
+      const savedRole = localStorage.getItem(ROLE_STORAGE_KEY);
+      const hydratedRole: AppRole = isAppRole(savedRole) ? savedRole : "customer";
+      const savedSession = localStorage.getItem(SESSION_STORAGE_KEY);
+      if (savedSession) {
+        try {
+          return normalizeSession(JSON.parse(savedSession), hydratedRole);
+        } catch {
+          return null;
+        }
       }
     }
-
-    if (hydratedSession) {
-      setUserState(hydratedSession);
-      setRoleState(hydratedSession.role);
-      persistRole(hydratedSession.role);
-      persistSession(hydratedSession);
-      return;
+    return null;
+  });
+  const [isDev, setIsDev] = useState(() => {
+    if (typeof window !== "undefined" && window.location.hostname === "localhost") {
+      return true;
     }
-
-    setUserState(null);
-    setRoleState(hydratedRole);
-  }, []);
+    return false;
+  });
 
   const setRole = (newRole: AppRole) => {
     setRoleState(newRole);

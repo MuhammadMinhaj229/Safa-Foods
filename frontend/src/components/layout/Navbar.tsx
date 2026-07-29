@@ -61,9 +61,6 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     if (!isStoreModalOpen) {

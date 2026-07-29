@@ -38,8 +38,8 @@ export default function LoginPage() {
       await authService.requestCustomerOtp(identifier);
       setStep('verify');
       setCountdown(60);
-    } catch (err: any) {
-      setError(err.message || 'Failed to send OTP. Please try again.');
+    } catch (err: Error | unknown) {
+      setError((err as Error).message || 'Failed to send OTP. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -55,8 +55,8 @@ export default function LoginPage() {
       Cookies.set('safa_session', JSON.stringify(session), { expires: 7 });
       setRole('customer');
       router.push('/profile');
-    } catch (err: any) {
-      setError(err.message || 'Artisan verification failed.');
+    } catch (err: Error | unknown) {
+      setError((err as Error).message || 'Artisan verification failed.');
     } finally {
       setLoading(false);
     }
@@ -72,8 +72,8 @@ export default function LoginPage() {
       Cookies.set('safa_session', JSON.stringify(session), { expires: 1 });
       setRole('admin');
       router.push('/admin');
-    } catch (err: any) {
-      setError(err.message || 'Invalid credentials.');
+    } catch (err: Error | unknown) {
+      setError((err as Error).message || 'Invalid credentials.');
     } finally {
       setLoading(false);
     }

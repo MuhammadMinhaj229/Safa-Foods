@@ -1,5 +1,7 @@
 # Safa Foods
 
+Live Deployment: [https://safa-foods-frontend.onrender.com](https://safa-foods-frontend.onrender.com)
+
 Professional monorepo structure for the Safa Foods commerce platform.
 
 ## Project layout

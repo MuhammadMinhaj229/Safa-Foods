@@ -5,10 +5,9 @@ import { HeartHandshake } from 'lucide-react';
 import { SafaLogo } from '@/components/shared/SafaLogo';
 
 export default function MissionPage() {
-  const [fade, setFade] = useState(false);
+  const [fade, setFade] = useState(true);
 
   useEffect(() => {
-    setFade(true);
     const timer = setTimeout(() => setFade(false), 300);
     return () => clearTimeout(timer);
   }, []);
@@ -63,7 +62,7 @@ export default function MissionPage() {
                 />
              </div>
              <div className="absolute -bottom-6 -left-10 bg-[#A68A56] p-10 text-[#1E331B] max-w-[280px] shadow-2xl z-20 backdrop-blur-md">
-               <span className="font-serif italic text-3xl leading-snug">"Community is the strongest ingredient."</span>
+               <span className="font-serif italic text-3xl leading-snug">&quot;Community is the strongest ingredient.&quot;</span>
              </div>
           </div>
         </div>
