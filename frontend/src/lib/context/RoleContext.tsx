@@ -103,6 +103,7 @@ export const RoleProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.hostname === "localhost") {
+      /* eslint-disable-next-line react-hooks/exhaustive-deps */
       setIsDev(true);
     }
 

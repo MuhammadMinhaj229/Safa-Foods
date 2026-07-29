@@ -27,6 +27,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   // Persistent Hydration
   useEffect(() => {
     const saved = localStorage.getItem('safa_cart');
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
     if (saved) setCart(JSON.parse(saved));
   }, []);
 

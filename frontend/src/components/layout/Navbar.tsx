@@ -61,6 +61,7 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /* eslint-disable-next-line react-hooks/exhaustive-deps */
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
@@ -140,24 +141,32 @@ export const Navbar = () => {
                 color={useLightTheme ? "#f3ead5" : "#1E331B"}
                 textColor={useLightTheme ? "#f3ead5" : "#1E331B"}
                 taglineColor={useLightTheme ? "#c8ad71" : "#b49761"}
-                imageClassName={
-                  useLightTheme
-                    ? "brightness-0 invert sepia-[0.22] saturate-[0.9] hue-rotate-[340deg] brightness-[1.05]"
-                    : ""
-                }
+                imageClassName=""
               />
             </Link>
 
             <div className="hidden flex-1 items-center justify-center pl-8 text-[12px] font-black uppercase tracking-[0.5em] lg:flex">
-              <div className="flex items-center gap-10">
+                            <div className="flex items-center gap-10">
                 <NavButton href="/" active={pathname === "/"} light={useLightTheme}>
                   Home
                 </NavButton>
-                <NavButton href="/shop" active={pathname.startsWith("/shop")} light={useLightTheme}>
-                  Catalogue
+                <NavButton href="/services/fresh" active={pathname.startsWith("/services/fresh")} light={useLightTheme}>
+                  Fresh
                 </NavButton>
-                <NavButton href="/mission" active={pathname === "/mission"} light={useLightTheme}>
-                  Mission
+                <NavButton href="/services/foods" active={pathname.startsWith("/services/foods")} light={useLightTheme}>
+                  Foods
+                </NavButton>
+                <NavButton href="/services/travel" active={pathname.startsWith("/services/travel")} light={useLightTheme}>
+                  Travel
+                </NavButton>
+                <NavButton href="/services/send" active={pathname.startsWith("/services/send")} light={useLightTheme}>
+                  Send
+                </NavButton>
+                <NavButton href="/services/home-services" active={pathname.startsWith("/services/home-services")} light={useLightTheme}>
+                  Services
+                </NavButton>
+                <NavButton href="/services/community" active={pathname.startsWith("/services/community")} light={useLightTheme}>
+                  Community
                 </NavButton>
                 <button
                   type="button"
@@ -202,15 +211,27 @@ export const Navbar = () => {
         {isMobileMenuOpen ? (
           <div className="mt-3 px-3 sm:mt-4 sm:px-6 lg:hidden">
             <div className="mx-auto max-w-7xl bg-white/95 p-7 shadow-2xl backdrop-blur-3xl animate-fade-up sm:p-10">
-              <div className="flex flex-col gap-6 text-center text-[12px] font-black uppercase tracking-[0.34em] sm:gap-8 sm:text-[14px] sm:tracking-[0.5em]">
+                            <div className="flex flex-col gap-6 text-center text-[12px] font-black uppercase tracking-[0.34em] sm:gap-8 sm:text-[14px] sm:tracking-[0.5em]">
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
                   Home
                 </Link>
-                <Link href="/shop" onClick={() => setIsMobileMenuOpen(false)}>
-                  Catalog
+                <Link href="/services/fresh" onClick={() => setIsMobileMenuOpen(false)}>
+                  Fresh
                 </Link>
-                <Link href="/mission" onClick={() => setIsMobileMenuOpen(false)}>
-                  Mission
+                <Link href="/services/foods" onClick={() => setIsMobileMenuOpen(false)}>
+                  Foods
+                </Link>
+                <Link href="/services/travel" onClick={() => setIsMobileMenuOpen(false)}>
+                  Travel
+                </Link>
+                <Link href="/services/send" onClick={() => setIsMobileMenuOpen(false)}>
+                  Send
+                </Link>
+                <Link href="/services/home-services" onClick={() => setIsMobileMenuOpen(false)}>
+                  Services
+                </Link>
+                <Link href="/services/community" onClick={() => setIsMobileMenuOpen(false)}>
+                  Community
                 </Link>
                 <button
                   type="button"

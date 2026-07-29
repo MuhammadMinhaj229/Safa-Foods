@@ -20,7 +20,7 @@ export const SafaLogo = ({
   <div className="group flex cursor-pointer items-center gap-2 sm:gap-5">
     <div className={`${className} relative transition-transform duration-700 group-hover:scale-105`}>
       <Image
-        src="/logo-transparent.png"
+        src="/logo.jpg"
         alt="Safa Foods logo"
         fill
         sizes="(max-width: 640px) 40px, 56px"
