@@ -1,59 +1,34 @@
-# Safa Foods
+# Safa Foods & Wholesale — Supermarket Grocery Ordering & Household Supply Platform
 
-Professional monorepo structure for the Safa Foods commerce platform.
+[![Brand](https://img.shields.io/badge/Client-Safa_Fresh_Supermarket-green?style=flat-square)](https://alif-growth.netlify.app)
+[![Powered by](https://img.shields.io/badge/Powered_by-Alif_Growth_Media-c99b3b?style=flat-square)](https://alif-growth.netlify.app)
+[![Container](https://img.shields.io/badge/Docker-Ready-blue?style=flat-square&logo=docker&logoColor=white)](https://docker.com)
 
-## Project layout
+**Safa Foods & Wholesale** is an integrated household grocery supply and order automation platform engineered for local supermarkets and wholesale grain distributors. It transforms chaotic phone-call orders into clean, organized digital dispatches with automated WhatsApp invoice delivery.
 
-- `frontend/`
-  Next.js storefront and frontend API proxy routes
-- `backend/`
-  .NET backend, PostgreSQL migrations, SQL scripts, and backend architecture docs
-- `docs/`
-  business requirements, product planning, and early project specifications
-- `.logs/`
-  local build and diagnostic artifacts
+---
 
-## Working structure
+## ⚡ Key Capabilities
 
-### Frontend
+- **Weekly Household Order Form:** Simplified mobile interface for families to submit repeat weekly grocery lists.
+- **Automated SKU & Inventory Reconciliation:** Matches incoming orders against current supermarket stock sheets (`.xlsx`).
+- **1-Tap WhatsApp Invoice Dispatch:** Automatically tallies totals and sends payment links (UPI/Cash on Delivery) via WhatsApp.
+- **Multi-Service Architecture:** Includes .NET backend solution (`SafaFoods.sln`) and containerized Python order parsing microservices.
 
-- app: `frontend/`
-- stack: `Next.js`, `TypeScript`, `Tailwind`, `Prisma` support for frontend-side development utilities
+---
 
-### Backend
+## 🚀 How to Run Locally
 
-- app: `backend/`
-- stack: `.NET 9`, `ASP.NET Core Minimal APIs`, `EF Core`, `PostgreSQL`
+```bash
+git clone https://github.com/MuhammadMinhaj229/Safa-Foods.git
+cd Safa-Foods
 
-## Key docs
-
-- backend architecture: `backend/docs/BACKEND_ARCHITECTURE.md`
-- API architecture: `backend/docs/API_ARCHITECTURE.md`
-- database architecture: `backend/docs/DATABASE_ARCHITECTURE.md`
-- product blueprint: `docs/PRODUCT_BLUEPRINT.md`
-- MVP roadmap: `docs/MVP_ROADMAP.md`
-
-## Goal
-
-This repository is organized as a clean two-application structure:
-
-- `frontend` for the customer/admin web experience
-- `backend` for the business system, operations logic, and database lifecycle
-
-That is the right professional baseline for this project.
-
-## Local run
-
-Run both frontend and backend from the repo root:
-
-```powershell
-npm install
-npm run dev
+# Running with Docker
+docker build -t safa-foods-app .
+docker run -p 5000:5000 safa-foods-app
 ```
 
-Individual app commands:
+---
 
-```powershell
-npm run dev:frontend
-npm run dev:backend
-```
+## 👤 Author
+Engineered by **Mohammed Minhaj Mahmood** for Alif Growth Media.
