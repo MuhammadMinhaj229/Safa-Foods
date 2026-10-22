@@ -17,17 +17,15 @@ export const Hero = () => {
             Warangal &amp; Hanamkonda | Made Fresh Daily
           </div>
 
-          <h1 className="mt-10 font-serif text-[3.1rem] italic leading-[0.92] tracking-[-0.045em] text-[#1b3821] min-[380px]:text-[3.6rem] sm:text-[5rem] lg:text-[5.6rem]">
+                    <h1 className="mt-10 font-serif text-[3.1rem] italic leading-[0.92] tracking-[-0.045em] text-[#1b3821] min-[380px]:text-[3.6rem] sm:text-[5rem] lg:text-[5.6rem]">
             Everything your
             <span className="block">home needs.</span>
-            <span className="block text-[#c2a267]">Fresh. Trusted.</span>
-            <span className="block">Delivered.</span>
+            <span className="block text-[#c2a267]">One Trusted</span>
+            <span className="block">Platform.</span>
           </h1>
 
           <p className="mt-8 max-w-lg text-[1.05rem] leading-8 text-[#6a7067] sm:text-[1.15rem]">
-            We help families keep a happy kitchen. Fresh, preservative-free
-            essentials made daily in our Warangal kitchen and brought to your door
-            with one simple WhatsApp message &mdash; so daily life feels lighter.
+            SAFA connects your household with trusted products and services. From fresh daily essentials to travel assistance, all through one cohesive ecosystem designed to keep your home running smoothly.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
